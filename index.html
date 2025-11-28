@@ -128,6 +128,19 @@ footer a { color:#008000; margin:0 10px; font-size:20px; }
   .hamburger { display: flex; /* hamburger visible on mobile */ }
 
   /* mobile nav hidden by default, becomes column when .open */
+
+  /* HERO BUTTONS SPACING ON MOBILE */
+@media (max-width:768px){
+  .hero-content button {
+    margin-bottom: 15px; /* space between stacked buttons */
+  }
+
+  /* Optional: remove extra margin on last button */
+  .hero-content button:last-child {
+    margin-bottom: 0;
+  }
+}
+
   #nav-links {
     display: none;
     position: absolute;
