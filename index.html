@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NaijaTaste - Authentic Nigerian Cuisine</title>
+<title>Space Haven - Authentic Nigerian Cuisine</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-bx+Kn9+5kF+H5h2JHfRPr+2R+Xy6Z+S04o1V3J+q0RkpC58OTfJXQv9Mq/5ygYb4WZ8QjGfD+GhVv4g6Xk5Z1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -86,59 +86,74 @@ header nav .social { margin-left:15px; font-size:20px; color:#008000; }
 footer { background:#111; color:#fff; text-align:center; padding:40px 20px; margin-top:50px; }
 footer a { color:#008000; margin:0 10px; font-size:20px; }
 
-/* Hamburger default */
-/* Hamburger default */
-/* Hamburger container */
+/* HAMBURGER */
+/* HAMBURGER */
 .hamburger {
-  width: 30px;           /* width of hamburger */
-  height: 30px;          /* tall enough for spacing */
-  display: none;         /* hide on desktop */
+  width: 34px;
+  display: none;          /* hidden on desktop */
   flex-direction: column;
-  justify-content: space-between; /* evenly space lines */
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 0;
   cursor: pointer;
 }
 
-/* Hamburger lines */
 .hamburger span {
   display: block;
-  height: 7px;           /* thickness of lines */
+  width: 100%;
+  height: 6px;
   background-color: #008000;
-  border-radius: 3px;
-  transition: all 0.3s ease;
-}
-
-
-
-/* Mobile view */
-@media(max-width:768px){
-  .hamburger { display: flex; }
-
-  #nav-links {
-    display: none; /* hide menu by default */
-    position: absolute;
-    top: 70px;     /* below header */
-    left: 0;
-    width: 100%;
-    flex-direction: column;
-    background: #fff;
-    padding: 15px 0;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    z-index: 1000;
-  }
-
-  #nav-links a {
-    margin: 10px 0;
-    text-align: center;
-  }
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 /* Hamburger animation when active */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
-.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
+}
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* MOBILE: hide nav, show hamburger */
+@media (max-width:768px) {
+  header { padding: 15px 20px; }
+
+  .hamburger { display: flex; /* hamburger visible on mobile */ }
+
+  /* mobile nav hidden by default, becomes column when .open */
+  #nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: #fff;
+    padding: 15px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    z-index: 1000;
+  }
+
+  #nav-links.open {
+    display: flex;
+  }
+
+  #nav-links a {
+    padding: 12px 16px;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    border-top: 1px solid rgba(0,0,0,0.05);
+  }
+
+  /* keep desktop nav styling intact on larger screens */
 }
 
 
@@ -177,18 +192,12 @@ footer a { color:#008000; margin:0 10px; font-size:20px; }
 <body>
 
 <!-- HEADER -->
+<!-- HEADER -->
 <header>
   <div class="logo">NaijaTaste</div>
 
-  <!-- Hamburger -->
-  <div class="hamburger" id="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
   <!-- Navigation links -->
-  <nav id="nav-links">
+  <nav id="nav-links" role="navigation" aria-label="Main Navigation">
     <a href="#home">Home</a>
     <a href="#menu">Menu</a>
     <a href="#about">About</a>
@@ -196,7 +205,15 @@ footer a { color:#008000; margin:0 10px; font-size:20px; }
     <a href="#testimonials">Testimonials</a>
     <a href="#gallery">Gallery</a>
   </nav>
+
+  <!-- Hamburger (button preferred for accessibility) -->
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </header>
+
 
 
 <!-- MOBILE ORDER BUTTON -->
@@ -233,7 +250,7 @@ footer a { color:#008000; margin:0 10px; font-size:20px; }
 <!-- ABOUT -->
 <section class="section" id="about" data-animate>
 <h2>About Us</h2>
-<p>Welcome to NaijaTaste! We bring authentic Nigerian flavors straight to your plate. Our chefs combine traditional recipes with fresh, local ingredients to deliver dishes that celebrate Nigeria’s rich culinary heritage.</p>
+<p>Welcome to Space Haven! We bring authentic Nigerian flavors straight to your plate. Our chefs combine traditional recipes with fresh, local ingredients to deliver dishes that celebrate Nigeria’s rich culinary heritage.</p>
 </section>
 
 <!-- ORDER -->
@@ -265,7 +282,7 @@ footer a { color:#008000; margin:0 10px; font-size:20px; }
 <section class="section" id="testimonials" data-animate>
 <h2>Customer Reviews</h2>
 <div class="testimonials" id="testimonial-container">
-  <div class="testimonial"><img src="images/ada.jpg"><p>"Amazing flavors! I felt like I was back in Lagos. Highly recommend NaijaTaste!"</p><h4>- Ada</h4></div>
+  <div class="testimonial"><img src="images/ada.jpg"><p>"Amazing flavors! I felt like I was back in Lagos. Highly recommend Space Haven!"</p><h4>- Ada</h4></div>
   <div class="testimonial"><img src="images/chuka.jpg"><p>"The Jollof Rice is incredible! Perfect balance of spice and aroma."</p><h4>- Chuka</h4></div>
   <div class="testimonial"><img src="images/funke.jpg"><p>"Quick delivery and delicious food. My go-to place for Nigerian dishes."</p><h4>- Funke</h4></div>
 </div>
@@ -292,7 +309,7 @@ footer a { color:#008000; margin:0 10px; font-size:20px; }
 
 <!-- FOOTER -->
 <footer>
-<p>© 2025 NaijaTaste Restaurant. All Rights Reserved.</p>
+<p>© 2025 Space Haven Restaurant. All Rights Reserved.</p>
 <p>Follow us on our social media
 <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
 <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -302,12 +319,37 @@ footer a { color:#008000; margin:0 10px; font-size:20px; }
 
 <!-- SCRIPTS -->
 <script>
+// NAV TOGGLE (mobile)
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
 
+// Toggle nav open/close
 hamburger.addEventListener('click', () => {
-  navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
-  hamburger.classList.toggle("active");
+  const isOpen = navLinks.classList.toggle('open');
+  hamburger.classList.toggle('active');
+  hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+});
+
+// Close menu when clicking a nav link (mobile)
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (navLinks.classList.contains('open')) {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
+
+// Ensure menu closes when resizing above mobile breakpoint
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    if (navLinks.classList.contains('open')) {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+  }
 });
 
 
