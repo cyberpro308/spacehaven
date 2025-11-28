@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NaijaTaste - Authentic Nigerian Cuisine</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-bx+Kn9+5kF+H5h2JHfRPr+2R+Xy6Z+S04o1V3J+q0RkpC58OTfJXQv9Mq/5ygYb4WZ8QjGfD+GhVv4g6Xk5Z1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+/* GLOBAL */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+body { scroll-behavior:smooth; color:#222; background:#fafafa; }
+a { text-decoration:none; }
+button { cursor:pointer; }
+
+/* HEADER */
+header { position:fixed; top:0; width:100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); display:flex; justify-content:space-between; align-items:center; padding:15px 50px; box-shadow:0 3px 10px rgba(0,0,0,0.1); z-index:1000; }
+header .logo { font-size:28px; font-weight:700; color:#008000; }
+header nav { display:flex; align-items:center; flex-wrap:wrap; }
+header nav a { margin-left:25px; font-weight:500; color:#222; transition:0.3s; }
+header nav a:hover { color:#008000; }
+header nav .social { margin-left:15px; font-size:20px; color:#008000; }
+
+/* HERO */
+.hero { height:100vh; background:url('images/hero background.jpeg') center/cover no-repeat; display:flex; align-items:center; justify-content:flex-start; padding-left:80px; position:relative; overflow:hidden; background-attachment:fixed; }
+.hero::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.45); }
+.hero-content { position:relative; color:#fff; max-width:500px; animation:fadeIn 2s ease forwards; opacity:0; }
+.hero-content h1 { font-size:60px; line-height:1.1; margin-bottom:20px; }
+.hero-content p { font-size:18px; margin-bottom:20px; }
+.hero-content button { padding:15px 35px; background:#008000; border:none; color:#fff; font-size:18px; border-radius:50px; margin-right:15px; transition:0.3s; }
+.hero-content button:hover { background:#00a000; }
+
+@keyframes fadeIn { to { opacity:1; } }
+
+/* SECTIONS */
+.section { padding:80px 50px; max-width:1200px; margin:0 auto; text-align:center; }
+.section h2 { font-size:40px; margin-bottom:30px; position:relative; display:inline-block; }
+.section h2::after { content:""; width:50px; height:4px; background:#008000; display:block; margin:10px auto 0; border-radius:2px; }
+[data-animate] { opacity:0; transform:translateY(50px); transition:all 1s ease; }
+.animate { opacity:1; transform:translateY(0); }
+
+/* MENU */
+.filter-btns { margin-bottom:30px; }
+.filter-btns button { padding:10px 20px; border:none; margin:5px; border-radius:50px; background:#eee; cursor:pointer; transition:0.3s; }
+.filter-btns button.active, .filter-btns button:hover { background:#008000; color:#fff; }
+.menu-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; margin-top:40px; }
+.menu-item { background:#fff; border-radius:15px; overflow:hidden; box-shadow:0 5px 20px rgba(0,0,0,0.1); transition:0.3s; }
+.menu-item:hover { transform:translateY(-8px); }
+.menu-item img { width:100%; height:220px; object-fit:cover; }
+.menu-item .info { padding:20px; }
+.menu-item h3 { font-size:22px; margin-bottom:10px; }
+.menu-item p { font-size:15px; color:#555; }
+.menu-item .price { margin-top:15px; font-weight:600; color:#008000; }
+
+/* ABOUT */
+#about p { font-size:18px; line-height:1.6; color:#333; max-width:800px; margin:0 auto; }
+
+/* ORDER */
+#order form { display:flex; flex-direction:column; gap:20px; background:#fff; padding:40px; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.1); }
+#order input, #order select, #order textarea { padding:15px; border-radius:8px; border:1px solid #ccc; font-size:16px; }
+#order button { padding:15px; border:none; border-radius:50px; background:#008000; color:#fff; font-size:18px; cursor:pointer; transition:0.3s; }
+#order button:hover { background:#00a000; }
+#order .order-container { display:flex; flex-wrap:wrap; gap:40px; justify-content:center; align-items:flex-start; }
+
+/* TESTIMONIALS */
+.testimonials { display:flex; overflow:hidden; gap:30px; scroll-behavior:smooth; }
+.testimonial { flex:0 0 300px; background:#fff; padding:30px; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.1); transition:transform 0.5s ease; }
+.testimonial img { width:60px; height:60px; border-radius:50%; object-fit:cover; margin-bottom:15px; }
+.testimonial p { font-size:16px; color:#555; }
+
+/* GALLERY */
+.gallery-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
+.gallery-grid img { width:100%; height:150px; object-fit:cover; border-radius:15px; transition:0.3s; cursor:pointer; }
+.gallery-grid img:hover { transform:scale(1.05); }
+
+/* LIGHTBOX */
+#lightbox { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:2000; }
+#lightbox-img { max-width:90%; max-height:80%; border-radius:15px; }
+#close-lightbox { position:absolute; top:20px; right:30px; font-size:40px; color:#fff; cursor:pointer; }
+
+/* MOBILE ORDER BUTTON */
+#mobile-order-btn { display:none; position:fixed; bottom:20px; right:20px; padding:15px 25px; background:#008000; color:#fff; border-radius:50px; box-shadow:0 5px 20px rgba(0,0,0,0.3); z-index:1500; font-weight:600; text-decoration:none; }
+
+/* FOOTER */
+footer { background:#111; color:#fff; text-align:center; padding:40px 20px; margin-top:50px; }
+footer a { color:#008000; margin:0 10px; font-size:20px; }
+
+/* Hamburger default */
+/* Hamburger default */
+/* Hamburger container */
+.hamburger {
+  width: 30px;           /* width of hamburger */
+  height: 30px;          /* tall enough for spacing */
+  display: none;         /* hide on desktop */
+  flex-direction: column;
+  justify-content: space-between; /* evenly space lines */
+  cursor: pointer;
+}
+
+/* Hamburger lines */
+.hamburger span {
+  display: block;
+  height: 7px;           /* thickness of lines */
+  background-color: #008000;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+
+
+/* Mobile view */
+@media(max-width:768px){
+  .hamburger { display: flex; }
+
+  #nav-links {
+    display: none; /* hide menu by default */
+    position: absolute;
+    top: 70px;     /* below header */
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: #fff;
+    padding: 15px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+  }
+
+  #nav-links a {
+    margin: 10px 0;
+    text-align: center;
+  }
+}
+
+/* Hamburger animation when active */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+
+/* Mobile styles */
+@media(max-width:768px){
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+  }
+  
+  #nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    display: none; /* hidden by default */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    padding: 15px 0;
+    z-index: 1000;
+  }
+  #nav-links a {
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .hamburger { display: block; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">NaijaTaste</div>
+
+  <!-- Hamburger -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Navigation links -->
+  <nav id="nav-links">
+    <a href="#home">Home</a>
+    <a href="#menu">Menu</a>
+    <a href="#about">About</a>
+    <a href="#order">Order</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#gallery">Gallery</a>
+  </nav>
+</header>
+
+
+<!-- MOBILE ORDER BUTTON -->
+<a href="#order" id="mobile-order-btn">Order Now</a>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content" data-animate>
+    <h1>Real Nigerian Flavor</h1>
+    <p>Discover delicious Naija dishes made with love, spice, and tradition.</p>
+    <button onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">Explore Menu</button>
+    <button onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">Order Now</button>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="section" id="menu" data-animate>
+<h2>Our Menu</h2>
+<div class="filter-btns">
+  <button class="active" onclick="filterMenu('all')">All</button>
+  <button onclick="filterMenu('rice')">Rice Dishes</button>
+  <button onclick="filterMenu('soup')">Soups</button>
+  <button onclick="filterMenu('snacks')">Snacks</button>
+</div>
+<div class="menu-grid" id="menu-grid">
+  <div class="menu-item rice"><img src="images/jollof rice and chicken.avif"><div class="info"><h3>Jollof Rice & Chicken</h3><p>Classic smoky jollof with grilled chicken.</p><div class="price">₦3,500</div></div></div>
+  <div class="menu-item soup"><img src="images/pounded yam and egusi.jpg"><div class="info"><h3>Pounded Yam & Egusi</h3><p>Soft yam with rich egusi soup.</p><div class="price">₦4,200</div></div></div>
+  <div class="menu-item snacks"><img src="images/fried plantain and sauce.webp"><div class="info"><h3>Fried Plantain & Sauce</h3><p>Sweet plantain with spicy sauce.</p><div class="price">₦2,000</div></div></div>
+  <div class="menu-item rice"><img src="images/ofada rice.webp"><div class="info"><h3>Ofada Rice & Ayamase</h3><p>Local rice with green pepper stew.</p><div class="price">₦3,800</div></div></div>
+  <div class="menu-item soup"><img src="images/amala and ewedu.webp"><div class="info"><h3>Amala & Ewedu</h3><p>Soft amala with rich ewedu.</p><div class="price">₦3,500</div></div></div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about" data-animate>
+<h2>About Us</h2>
+<p>Welcome to NaijaTaste! We bring authentic Nigerian flavors straight to your plate. Our chefs combine traditional recipes with fresh, local ingredients to deliver dishes that celebrate Nigeria’s rich culinary heritage.</p>
+</section>
+
+<!-- ORDER -->
+<section class="section" id="order" data-animate>
+<h2>Place Your Order</h2>
+<div class="order-container">
+<form action="https://formspree.io/f/yourformid" method="POST">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <input type="tel" name="phone" placeholder="Phone Number" required>
+  <select name="dish" id="dish" required>
+    <option value="" disabled selected>Select Dish</option>
+    <option value="jollof">Jollof Rice & Chicken - ₦3,500</option>
+    <option value="pounded">Pounded Yam & Egusi - ₦4,200</option>
+    <option value="plantain">Fried Plantain & Sauce - ₦2,000</option>
+    <option value="ofada">Ofada Rice & Ayamase - ₦3,800</option>
+    <option value="amala">Amala & Ewedu - ₦3,500</option>
+  </select>
+  <input type="number" name="quantity" id="quantity" placeholder="Quantity" value="1" min="1" required>
+  <textarea name="instructions" placeholder="Additional Instructions"></textarea>
+  <div>Total: ₦<span id="total">0</span></div>
+  <button type="submit">Place Order</button>
+</form>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.0000000000!2d3.0000000!3d6.0000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b000000000000%3A0x0000000000000000!2sYour%20Restaurant!5e0!3m2!1sen!2sng!4v0000000000000!5m2!1sen!2sng" width="100%" height="350" style="border:0;border-radius:15px;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials" data-animate>
+<h2>Customer Reviews</h2>
+<div class="testimonials" id="testimonial-container">
+  <div class="testimonial"><img src="images/ada.jpg"><p>"Amazing flavors! I felt like I was back in Lagos. Highly recommend NaijaTaste!"</p><h4>- Ada</h4></div>
+  <div class="testimonial"><img src="images/chuka.jpg"><p>"The Jollof Rice is incredible! Perfect balance of spice and aroma."</p><h4>- Chuka</h4></div>
+  <div class="testimonial"><img src="images/funke.jpg"><p>"Quick delivery and delicious food. My go-to place for Nigerian dishes."</p><h4>- Funke</h4></div>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" id="gallery" data-animate>
+<h2>Gallery</h2>
+<div class="gallery-grid">
+  <img src="images/ambiance 1.jpg">
+  <img src="images/ambience 2.webp">
+  <img src="images/ambience 3.jpg">
+  <img src="images/ambience 4.png">
+  <img src="images/ambience 5.jpg">
+  <img src="images/ambience 6.webp">
+</div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <span id="close-lightbox">&times;</span>
+  <img id="lightbox-img" src="">
+</div>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2025 NaijaTaste Restaurant. All Rights Reserved.</p>
+<p>Follow us on our social media
+<a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+<a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+</p>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+hamburger.addEventListener('click', () => {
+  navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
+  hamburger.classList.toggle("active");
+});
+
+
+
+// Menu Filter
+function filterMenu(category){
+  const buttons = document.querySelectorAll('.filter-btns button');
+  buttons.forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  const items = document.querySelectorAll('.menu-item');
+  items.forEach(item => {
+    if(category==='all'){ item.style.display='block'; }
+    else { item.style.display = item.classList.contains(category) ? 'block':'none'; }
+  });
+}
+
+// Order Total Calculation
+const dishPrices = { jollof:3500, pounded:4200, plantain:2000, ofada:3800, amala:3500 };
+const dishSelect = document.getElementById('dish');
+const quantityInput = document.getElementById('quantity');
+const totalSpan = document.getElementById('total');
+function updateTotal(){ const dish = dishSelect.value; const qty=parseInt(quantityInput.value)||1; totalSpan.textContent=dishPrices[dish]?dishPrices[dish]*qty:0; }
+dishSelect.addEventListener('change', updateTotal);
+quantityInput.addEventListener('input', updateTotal);
+
+// Scroll Animations
+const animatedElements = document.querySelectorAll('[data-animate]');
+function animateOnScroll(){
+  const windowBottom = window.innerHeight;
+  animatedElements.forEach(el=>{
+    const elTop=el.getBoundingClientRect().top;
+    if(elTop<windowBottom-100){ el.classList.add('animate'); }
+  });
+}
+window.addEventListener('scroll', animateOnScroll);
+animateOnScroll();
+
+// Testimonial Slider
+const testimonialContainer = document.getElementById('testimonial-container');
+let slideIndex = 0;
+function slideTestimonials(){
+  const testimonials = document.querySelectorAll('.testimonial');
+  const slideWidth = testimonials[0].offsetWidth + 30;
+  slideIndex++;
+  if(slideIndex>=testimonials.length) slideIndex=0;
+  testimonialContainer.scrollTo({left:slideIndex*slideWidth, behavior:'smooth'});
+}
+setInterval(slideTestimonials,4000);
+
+// Lightbox
+const galleryImages = document.querySelectorAll('.gallery-grid img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeLightbox = document.getElementById('close-lightbox');
+galleryImages.forEach(img=>{ img.addEventListener('click',()=>{ lightbox.style.display='flex'; lightboxImg.src=img.src; }); });
+closeLightbox.addEventListener('click',()=>{ lightbox.style.display='none'; });
+lightbox.addEventListener('click',(e)=>{ if(e.target===lightbox) lightbox.style.display='none'; });
+
+// Mobile Order Button
+function toggleMobileOrder(){ const btn=document.getElementById('mobile-order-btn'); btn.style.display=(window.innerWidth<=768)?'block':'none'; }
+window.addEventListener('resize',toggleMobileOrder);
+window.addEventListener('load',toggleMobileOrder);
+
+</script>
+
+</body>
+</html>
