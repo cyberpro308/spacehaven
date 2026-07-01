@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & FAQ — Space Haven Nigerian Cuisine</title>
+  <meta name="description" content="Get in touch with Space Haven in Victoria Island, Lagos. Find our address, phone, email, opening hours, live map and answers to frequently asked questions." />
+  <meta name="theme-color" content="#0f7a38" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f7a38'/%3E%3Cpath d='M8 18h16a8 8 0 0 1-16 0Z' fill='%23fff'/%3E%3Ccircle cx='16' cy='9' r='3' fill='%23f0b846'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="index.html" aria-label="Space Haven home">
+        <span class="brand-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 13h16a8 8 0 0 1-16 0Z" fill="currentColor"/><path d="M6 13V9m12 4V9M9 6c0-1.5 6-1.5 6 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="5" r="1.6" fill="#f0b846"/></svg></span>
+        <span class="brand-name">Space Haven<small>Nigerian Kitchen</small></span>
+      </a>
+      <div class="nav-links"><a href="index.html">Home</a><a href="menu.html">Menu</a><a href="about.html">About</a><a href="reservations.html">Reservations</a><a href="contact.html">Contact</a></div>
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" data-theme-toggle type="button" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i></button>
+        <button class="icon-btn" data-open-cart type="button" aria-label="Open cart"><i class="fa-solid fa-basket-shopping"></i><span class="cart-count" aria-hidden="true">0</span></button>
+        <a class="btn primary small" href="reservations.html" style="margin-left:2px">Book a Table</a>
+        <button class="icon-btn nav-toggle" type="button" aria-label="Open menu" aria-controls="drawer"><span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span></button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="drawer-backdrop"></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <div class="drawer-head"><span class="brand"><span class="brand-badge" aria-hidden="true"><i class="fa-solid fa-utensils" style="font-size:16px"></i></span><span class="brand-name">Space Haven</span></span><button class="icon-btn" id="drawerClose" type="button" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button></div>
+    <nav class="drawer-links" aria-label="Mobile"><a href="index.html">Home</a><a href="menu.html">Menu</a><a href="about.html">About</a><a href="reservations.html">Reservations</a><a href="contact.html">Contact</a></nav>
+    <div class="drawer-foot"><a class="btn primary block" href="reservations.html">Book a Table</a><div class="drawer-social"><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a><a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a></div></div>
+  </aside>
+
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping cart">
+    <div class="cart-head"><h3>Your Order</h3><button class="icon-btn" id="cartClose" type="button" aria-label="Close cart"><i class="fa-solid fa-xmark"></i></button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-foot"><div class="cart-line"><span>Subtotal</span><span data-cart-subtotal>₦0</span></div><div class="cart-line"><span>Delivery</span><span data-cart-delivery>₦0</span></div><div class="cart-line total"><span>Total</span><span data-cart-total>₦0</span></div><a class="btn primary block" href="menu.html#checkout">Checkout</a></div>
+  </aside>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="hero-bg"><img src="images/ambience 3.jpg" alt="" aria-hidden="true"></div>
+      <div class="container" style="position:relative;z-index:2">
+        <p class="eyebrow" style="justify-content:center;color:var(--accent-2)">Get in touch</p>
+        <h1>We'd love to hear from you</h1>
+        <p>Questions, feedback, catering enquiries or just a craving? Reach out — we reply fast.</p>
+        <nav class="breadcrumb"><a href="index.html">Home</a> / Contact</nav>
+      </div>
+    </section>
+
+    <!-- Contact info cards -->
+    <section class="section" style="padding-bottom:0">
+      <div class="container grid cols-3">
+        <div class="card info-card" data-reveal><div class="ic"><i class="fa-solid fa-location-dot"></i></div><div><h4>Visit us</h4><p>24 Adeola Odeku Street,<br>Victoria Island, Lagos, Nigeria</p></div></div>
+        <div class="card info-card" data-reveal data-delay="1"><div class="ic"><i class="fa-solid fa-phone"></i></div><div><h4>Call / WhatsApp</h4><p><a href="tel:+2348012345678" style="color:var(--brand);font-weight:600">+234 801 234 5678</a><br>Daily, 10am – 10pm</p></div></div>
+        <div class="card info-card" data-reveal data-delay="2"><div class="ic"><i class="fa-solid fa-envelope"></i></div><div><h4>Email us</h4><p><a href="mailto:hello@spacehaven.ng" style="color:var(--brand);font-weight:600">hello@spacehaven.ng</a><br>We reply within a few hours</p></div></div>
+      </div>
+    </section>
+
+    <!-- Form + map -->
+    <section class="section">
+      <div class="container contact-grid">
+        <form class="form-card" id="contactForm" novalidate data-reveal>
+          <h2 style="margin:0 0 6px;font-size:26px">Send a message</h2>
+          <p style="color:var(--muted);margin:0 0 22px">Fill in the form and our team will get back to you shortly.</p>
+          <div class="form-grid">
+            <div class="field-group">
+              <label for="m-name">Name <span class="req">*</span></label>
+              <input class="field" id="m-name" name="name" type="text" autocomplete="name" required>
+              <span class="err-msg">Please enter your name.</span>
+            </div>
+            <div class="field-group">
+              <label for="m-email">Email <span class="req">*</span></label>
+              <input class="field" id="m-email" name="email" type="email" autocomplete="email" required>
+              <span class="err-msg">Enter a valid email.</span>
+            </div>
+            <div class="field-group full">
+              <label for="m-subject">Subject</label>
+              <select class="field" id="m-subject" name="subject">
+                <option>General enquiry</option><option>Catering & events</option><option>Feedback</option><option>Careers</option><option>Press</option>
+              </select>
+            </div>
+            <div class="field-group full">
+              <label for="m-message">Message <span class="req">*</span></label>
+              <textarea class="field" id="m-message" name="message" rows="5" required></textarea>
+              <span class="err-msg">Please write a short message.</span>
+            </div>
+          </div>
+          <button class="btn primary block" type="submit" style="margin-top:18px"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+        </form>
+
+        <div data-reveal data-delay="1" style="display:flex;flex-direction:column;gap:18px">
+          <iframe class="map" title="Space Haven location on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+            src="https://www.google.com/maps?q=Adeola+Odeku+Street,+Victoria+Island,+Lagos&output=embed"></iframe>
+          <div class="form-card">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><h3 style="margin:0;font-size:19px">Opening hours</h3><span id="openStatus" class="open-pill"></span></div>
+            <ul class="hours-list">
+              <li><span>Monday</span><span>11:00 – 22:00</span></li>
+              <li><span>Tuesday</span><span>11:00 – 22:00</span></li>
+              <li><span>Wednesday</span><span>11:00 – 22:00</span></li>
+              <li><span>Thursday</span><span>11:00 – 22:00</span></li>
+              <li><span>Friday</span><span>11:00 – 23:30</span></li>
+              <li><span>Saturday</span><span>11:00 – 23:30</span></li>
+              <li><span>Sunday</span><span>12:00 – 21:00</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section tint">
+      <div class="container" style="max-width:860px">
+        <div class="center"><p class="eyebrow" data-reveal>Questions</p><h2 class="section-title" data-reveal data-delay="1">Frequently asked</h2></div>
+        <div style="margin-top:30px" data-reveal>
+          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Do you offer delivery, and where? <i class="fa-solid fa-plus"></i></button><div class="faq-a"><div class="faq-a-inner">Yes! We deliver across Lagos Island and Mainland. Delivery is ₦1,500, and free on orders over ₦15,000. Average delivery time is about 30 minutes.</div></div></div>
+          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Can I book a table for a large group? <i class="fa-solid fa-plus"></i></button><div class="faq-a"><div class="faq-a-inner">Absolutely. Use our <a href="reservations.html" style="color:var(--brand);font-weight:600">reservations page</a> for parties up to 9. For 10 or more, please call +234 801 234 5678 so we can arrange the perfect space.</div></div></div>
+          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Do you cater for events and parties? <i class="fa-solid fa-plus"></i></button><div class="faq-a"><div class="faq-a-inner">We cater weddings, corporate events and celebrations of all sizes. Send us a message with the <b>Catering & events</b> subject and we'll build a custom menu with you.</div></div></div>
+          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Are there vegetarian or vegan options? <i class="fa-solid fa-plus"></i></button><div class="faq-a"><div class="faq-a-inner">Yes — look for the <span class="tag veg" style="display:inline-flex"><i class="fa-solid fa-leaf"></i>Veg</span> tag on our menu. Dishes like fried plantain and puff puff are vegetarian, and many soups can be made vegan on request.</div></div></div>
+          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">How spicy is the food? <i class="fa-solid fa-plus"></i></button><div class="faq-a"><div class="faq-a-inner">Nigerian food loves pepper! Dishes marked <span class="tag spicy" style="display:inline-flex"><i class="fa-solid fa-pepper-hot"></i>Spicy</span> pack heat, but we can adjust spice levels for most dishes — just add a note to your order.</div></div></div>
+          <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">What payment methods do you accept? <i class="fa-solid fa-plus"></i></button><div class="faq-a"><div class="faq-a-inner">We accept card, cash and bank transfer, both in-store and on delivery. You can select your preferred method at checkout.</div></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand"><span class="brand"><span class="brand-badge" aria-hidden="true"><i class="fa-solid fa-utensils" style="font-size:16px"></i></span><span class="brand-name" style="color:#fff">Space Haven</span></span><p>Authentic Nigerian cuisine served with soul in the heart of Lagos. Dine in, reserve, or order online.</p><div class="footer-social"><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a><a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a></div></div>
+      <div><h4>Explore</h4><a href="index.html">Home</a><br><a href="menu.html">Menu</a><br><a href="about.html">About</a><br><a href="reservations.html">Reservations</a><br><a href="contact.html">Contact</a></div>
+      <div><h4>Hours</h4><p style="color:#b7b1a3;font-size:14px;line-height:2">Mon–Thu: 11am – 10pm<br>Fri–Sat: 11am – 11:30pm<br>Sun: 12pm – 9pm</p></div>
+      <div><h4>Contact</h4><ul class="footer-contact"><li><i class="fa-solid fa-location-dot"></i> 24 Adeola Odeku St, Victoria Island, Lagos</li><li><i class="fa-solid fa-phone"></i> +234 801 234 5678</li><li><i class="fa-solid fa-envelope"></i> hello@spacehaven.ng</li></ul></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span data-year>2025</span> Space Haven Restaurant. All rights reserved.</span><span>Made with <i class="fa-solid fa-heart" style="color:#e8a325"></i> in Lagos, Nigeria</span></div>
+  </footer>
+
+  <button class="icon-btn to-top" type="button" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    (function () {
+      const form = document.getElementById("contactForm");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!window.SH.validateForm(form)) { window.SH.toast("Please fix the highlighted fields.", "error"); return; }
+        window.SH.toast("Thanks! Your message is on its way — we'll reply soon.", "success", "Message sent");
+        form.reset();
+      });
+    })();
+  </script>
+</body>
+</html>
