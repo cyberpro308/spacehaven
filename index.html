@@ -1,1221 +1,339 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Space Haven - Authentic Nigerian Cuisine</title>
+  <title>Space Haven — Authentic Nigerian Cuisine in Lagos</title>
+  <meta name="description" content="Space Haven serves authentic Nigerian cuisine — smoky jollof rice, pounded yam & egusi, suya and more. Dine in, book a table, or order online for delivery in Lagos." />
+  <meta name="theme-color" content="#0f7a38" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:title" content="Space Haven — Authentic Nigerian Cuisine" />
+  <meta property="og:description" content="Real Naija flavour, made with love, spice and tradition. Dine in, reserve a table, or order online." />
+  <meta property="og:image" content="images/jollof rice and chicken.avif" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f7a38'/%3E%3Cpath d='M8 18h16a8 8 0 0 1-16 0Z' fill='%23fff'/%3E%3Ccircle cx='16' cy='9' r='3' fill='%23f0b846'/%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/styles.css" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        integrity="sha512-bx+Kn9+5kF+H5h2JHfRPr+2R+Xy6Z+S04o1V3J+q0RkpC58OTfJXQv9Mq/5ygYb4WZ8QjGfD+GhVv4g6Xk5Z1A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <style>
-    :root{
-      --bg: #fafafa;
-      --card: #ffffff;
-      --text: #1b1b1b;
-      --muted: #5c5c5c;
-      --brand: #0b7a2b;
-      --brand-2: #0ea84b;
-      --glass: rgba(255,255,255,0.76);
-      --border: rgba(0,0,0,0.08);
-
-      --maxw: 1150px;
-      --radius: 18px;
-      --shadow: 0 12px 40px rgba(0,0,0,0.10);
-      --shadow-2: 0 18px 70px rgba(0,0,0,0.16);
-
-      --ease: cubic-bezier(.22,1,.36,1);
-      --dur-fast: 180ms;
-      --dur: 320ms;
-      --dur-slow: 750ms;
-
-      --pad-page: clamp(14px, 2.8vw, 50px);
-      --pad-sec: clamp(56px, 7vw, 92px);
-      --pad-card: clamp(16px, 2.6vw, 26px);
-      --gap-1: clamp(10px, 1.8vw, 14px);
-      --gap-2: clamp(14px, 2.6vw, 22px);
-      --gap-3: clamp(18px, 3.4vw, 32px);
-
-      --fs-h1: clamp(34px, 5.0vw, 64px);
-      --fs-h2: clamp(24px, 3.2vw, 40px);
-      --fs-body: clamp(14px, 1.4vw, 16px);
-      --fs-lead: clamp(15px, 1.7vw, 18px);
-      --fs-small: clamp(12px, 1.2vw, 13px);
-    }
-
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    html{ scroll-behavior:smooth; }
-
-    body{
-      margin:0;
-      font-family:'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(900px 420px at 14% -10%, rgba(14,168,75,.18), transparent 55%),
-        radial-gradient(900px 420px at 92% 0%, rgba(11,122,43,.16), transparent 60%),
-        var(--bg);
-      color:var(--text);
-      font-size: var(--fs-body);
-      line-height: 1.55;
-      overflow-x:hidden;
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      html{ scroll-behavior:auto; }
-      *,*::before,*::after{
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
-      }
-    }
-
-    a{ text-decoration:none; color:inherit; }
-    button{ cursor:pointer; }
-    img{ max-width:100%; display:block; }
-
-    :focus-visible{
-      outline: 3px solid color-mix(in srgb, var(--brand) 60%, transparent);
-      outline-offset: 3px;
-      border-radius: 12px;
-    }
-
-    .container{
-      width: min(var(--maxw), calc(100% - (var(--pad-page) * 2)));
-      margin: 0 auto;
-    }
-
-    /* HEADER */
-    header{
-      position: fixed;
-      top: 12px;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      padding: 0 var(--pad-page);
-      pointer-events:none;
-    }
-
-    .header-inner{
-      pointer-events:auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: var(--gap-1);
-      background: var(--glass);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-      padding: 12px 14px;
-      transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
-    }
-
-    .header-inner.is-scrolled{
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-2);
-    }
-
-    .logo{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      font-weight: 800;
-      letter-spacing: .2px;
-      user-select:none;
-      min-width: 0;
-    }
-    .logo-badge{
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--brand), var(--brand-2));
-      box-shadow: 0 12px 30px rgba(11,122,43,.22);
-      display:grid;
-      place-items:center;
-      color:#fff;
-      font-weight:900;
-    }
-    .logo span{
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      max-width: 30ch;
-    }
-
-    /* Desktop nav */
-    .nav-desktop{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-    }
-    .nav-desktop a{
-      padding: 10px 12px;
-      border-radius: 999px;
-      color: #1f1f1f;
-      font-weight: 600;
-      transition: background var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-    }
-    .nav-desktop a:hover{
-      background: rgba(11,122,43,0.10);
-      transform: translateY(-1px);
-      color: var(--brand);
-    }
-    .nav-desktop a.active{
-      background: rgba(11,122,43,0.14);
-      color: var(--brand);
-    }
-
-    .header-actions{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-    }
-
-    .icon-btn{
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.72);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 26px rgba(0,0,0,0.08);
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
-      -webkit-tap-highlight-color: transparent;
-    }
-    .icon-btn:hover{ transform: translateY(-2px); box-shadow: var(--shadow); }
-
-    .hamburger{
-      width: 18px; height: 14px;
-      position: relative;
-    }
-    .hamburger span{
-      position:absolute; left:0; right:0;
-      height:2px;
-      border-radius: 999px;
-      background: var(--brand);
-      transition: transform var(--dur) var(--ease), top var(--dur) var(--ease), opacity var(--dur) var(--ease);
-    }
-    .hamburger span:nth-child(1){ top:0; }
-    .hamburger span:nth-child(2){ top:6px; }
-    .hamburger span:nth-child(3){ top:12px; }
-
-    body.menu-open #menuBtn .hamburger span:nth-child(1){ top:6px; transform: rotate(45deg); }
-    body.menu-open #menuBtn .hamburger span:nth-child(2){ opacity:0; }
-    body.menu-open #menuBtn .hamburger span:nth-child(3){ top:6px; transform: rotate(-45deg); }
-
-    /* Mobile drawer */
-    .drawer-backdrop{
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.52);
-      backdrop-filter: blur(6px);
-      opacity: 0;
-      pointer-events:none;
-      transition: opacity var(--dur) var(--ease);
-      z-index: 1500;
-    }
-    .drawer{
-      position: fixed;
-      top: 0; right: 0;
-      height: 100%;
-      width: min(88vw, 360px);
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(14px);
-      border-left: 1px solid var(--border);
-      box-shadow: var(--shadow-2);
-      transform: translateX(110%);
-      transition: transform var(--dur) var(--ease);
-      z-index: 1600;
-      padding: 16px;
-      display:flex;
-      flex-direction:column;
-      gap: 12px;
-    }
-    body.menu-open .drawer-backdrop{ opacity:1; pointer-events:auto; }
-    body.menu-open .drawer{ transform: translateX(0); }
-    body.menu-open{ overflow:hidden; touch-action:none; }
-
-    .drawer-head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 10px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
-    }
-    .drawer-nav{
-      display:flex;
-      flex-direction:column;
-      gap: 8px;
-      padding-top: 8px;
-    }
-    .drawer-nav a{
-      padding: 12px 12px;
-      border-radius: 14px;
-      font-weight: 700;
-      transition: background var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
-    }
-    .drawer-nav a:hover{
-      background: rgba(11,122,43,0.10);
-      transform: translateX(2px);
-      color: var(--brand);
-    }
-    .drawer-footer{
-      margin-top:auto;
-      border-top: 1px solid var(--border);
-      padding-top: 12px;
-      display:flex;
-      flex-direction:column;
-      gap: 10px;
-    }
-    .drawer-social{
-      display:flex; gap: 10px; align-items:center;
-      color: var(--brand);
-      font-size: 20px;
-    }
-
-    /* HERO */
-    .hero{
-      min-height: 100svh;
-      display:flex;
-      align-items:center;
-      padding-top: 110px;
-      padding-bottom: 46px;
-      position:relative;
-      overflow:hidden;
-    }
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,0.58), rgba(0,0,0,0.35)),
-        url('images/hero background.jpeg') center/cover no-repeat;
-      transform: scale(1.03);
-      will-change: transform;
-    }
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:-120px;
-      background:
-        radial-gradient(600px 260px at 20% 0%, rgba(14,168,75,.32), transparent 60%),
-        radial-gradient(700px 300px at 85% 20%, rgba(11,122,43,.30), transparent 62%);
-      pointer-events:none;
-      opacity: .70;
-    }
-    .hero-inner{
-      position:relative;
-      z-index: 2;
-      display:grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: var(--gap-2);
-      align-items:center;
-    }
-
-    .hero-card{
-      max-width: 640px;
-      color:#fff;
-      padding: clamp(18px, 3.2vw, 30px);
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,0.22);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 18px 70px rgba(0,0,0,0.28);
-    }
-    .hero h1{
-      font-size: var(--fs-h1);
-      line-height: 1.06;
-      margin: 0 0 14px;
-      letter-spacing: -0.6px;
-    }
-    .hero p{
-      font-size: var(--fs-lead);
-      margin: 0 0 18px;
-      color: rgba(255,255,255,0.86);
-    }
-
-    .btns{
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-      margin-top: 10px;
-    }
-    .btn{
-      border:none;
-      border-radius: 999px;
-      padding: 14px 22px;
-      font-weight: 700;
-      font-size: 16px;
-      transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
-      -webkit-tap-highlight-color: transparent;
-    }
-    .btn.primary{
-      background: linear-gradient(90deg, var(--brand), var(--brand-2));
-      color:#fff;
-      box-shadow: 0 16px 40px rgba(11,122,43,0.26);
-    }
-    .btn.primary:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 22px 60px rgba(11,122,43,0.34);
-    }
-    .btn.ghost{
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.22);
-      color: #fff;
-    }
-    .btn.ghost:hover{ transform: translateY(-2px); background: rgba(255,255,255,0.16); }
-
-    /* Sections */
-    .section{
-      padding: var(--pad-sec) 0;
-      text-align:center;
-    }
-
-    .section h2{
-      font-size: var(--fs-h2);
-      margin: 0 0 18px;
-      display:inline-block;
-      position:relative;
-      letter-spacing: -0.3px;
-    }
-    .section h2::after{
-      content:"";
-      width: 56px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--brand), var(--brand-2));
-      display:block;
-      margin: 12px auto 0;
-      border-radius: 999px;
-    }
-
-    .lead{
-      max-width: 860px;
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: var(--fs-lead);
-    }
-
-    /* Animate on scroll */
-    [data-animate]{
-      opacity:0;
-      transform: translateY(14px);
-      transition: opacity var(--dur-slow) var(--ease), transform var(--dur-slow) var(--ease);
-      will-change: opacity, transform;
-    }
-    .in{
-      opacity:1;
-      transform: translateY(0);
-    }
-
-    /* Menu filter */
-    .filter-btns{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap: 10px;
-      margin-top: 22px;
-    }
-    .chip{
-      padding: 10px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.8);
-      font-weight: 700;
-      transition: transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
-    }
-    .chip:hover{ transform: translateY(-2px); }
-    .chip.active{
-      background: linear-gradient(90deg, var(--brand), var(--brand-2));
-      color:#fff;
-      border-color: transparent;
-    }
-
-    .menu-grid{
-      margin-top: 26px;
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--gap-2);
-      text-align:left;
-    }
-
-    .menu-item{
-      background: var(--card);
-      border-radius: var(--radius);
-      overflow:hidden;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      transform: translateZ(0);
-      transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
-    }
-    .menu-item:hover{
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-2);
-    }
-    .menu-item img{
-      width:100%;
-      height: 220px;
-      object-fit: cover;
-      transform: scale(1.02);
-      transition: transform var(--dur-slow) var(--ease);
-    }
-    .menu-item:hover img{ transform: scale(1.08); }
-    .menu-item .info{
-      padding: var(--pad-card);
-    }
-    .menu-item h3{ margin: 0 0 6px; font-size: 18px; }
-    .menu-item p{ margin:0; color: var(--muted); }
-    .price{
-      margin-top: 12px;
-      font-weight: 800;
-      color: var(--brand);
-    }
-
-    /* Order */
-    .order-wrap{
-      display:grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: var(--gap-3);
-      align-items:start;
-      margin-top: 22px;
-    }
-
-    form.order-form{
-      background: var(--card);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      padding: clamp(16px, 2.6vw, 28px);
-      display:flex;
-      flex-direction:column;
-      gap: 12px;
-      text-align:left;
-    }
-
-    .field{
-      padding: 14px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(0,0,0,0.12);
-      background: rgba(255,255,255,0.92);
-      font-size: 16px;
-    }
-    .field:focus{
-      outline:none;
-      border-color: color-mix(in srgb, var(--brand) 55%, rgba(0,0,0,0.12));
-      box-shadow: 0 0 0 4px rgba(11,122,43,.14);
-    }
-
-    .total-row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: rgba(11,122,43,0.06);
-      border: 1px solid rgba(11,122,43,0.14);
-      font-weight: 800;
-    }
-
-    .map{
-      width:100%;
-      height: 100%;
-      min-height: 360px;
-      border:0;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    /* Testimonials */
-    .testimonials-wrap{
-      margin-top: 22px;
-      position:relative;
-    }
-    .testimonials{
-      display:flex;
-      gap: var(--gap-2);
-      overflow:auto;
-      scroll-snap-type: x mandatory;
-      padding: 8px;
-      -webkit-overflow-scrolling: touch;
-    }
-    .testimonials::-webkit-scrollbar{ height: 10px; }
-    .testimonials::-webkit-scrollbar-thumb{ background: rgba(0,0,0,0.12); border-radius: 999px; }
-    .testimonial{
-      flex: 0 0 min(92%, 360px);
-      scroll-snap-align: start;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: var(--pad-card);
-      text-align:left;
-      transition: transform var(--dur) var(--ease);
-    }
-    .testimonial:hover{ transform: translateY(-6px); }
-    .testimonial .who{
-      display:flex;
-      align-items:center;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-    .testimonial img{
-      width: 56px; height:56px;
-      border-radius: 999px;
-      object-fit: cover;
-      border: 2px solid rgba(11,122,43,0.16);
-    }
-    .testimonial p{ margin: 0; color: var(--muted); }
-    .testimonial h4{ margin: 10px 0 0; }
-
-    .t-controls{
-      display:flex;
-      justify-content:center;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .pill{
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.85);
-      border-radius: 999px;
-      padding: 10px 14px;
-      font-weight: 800;
-      transition: transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
-    }
-    .pill:hover{ transform: translateY(-2px); background: rgba(11,122,43,0.06); }
-
-    /* Gallery */
-    .gallery-grid{
-      margin-top: 22px;
-      display:grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .gallery-grid img{
-      width:100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      cursor:pointer;
-      transition: transform var(--dur) var(--ease), filter var(--dur) var(--ease);
-      transform: translateZ(0);
-    }
-    .gallery-grid img:hover{ transform: scale(1.04); filter: saturate(1.06) contrast(1.02); }
-
-    /* Lightbox */
-    #lightbox{
-      display:none;
-      position:fixed;
-      inset:0;
-      background: rgba(0,0,0,0.92);
-      z-index: 2000;
-      align-items:center;
-      justify-content:center;
-      padding: 18px;
-    }
-    #lightbox.open{ display:flex; }
-    #lightbox-img{
-      max-width: min(980px, 92vw);
-      max-height: 78vh;
-      border-radius: 18px;
-      box-shadow: 0 22px 80px rgba(0,0,0,0.5);
-    }
-    .lb-btn{
-      position: absolute;
-      top: 18px;
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.08);
-      color:#fff;
-      font-size: 18px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      transition: transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
-    }
-    .lb-btn:hover{ transform: translateY(-2px); background: rgba(255,255,255,0.12); }
-    #close-lightbox{ right: 18px; }
-    #prev-lightbox{ left: 18px; top: 50%; transform: translateY(-50%); }
-    #next-lightbox{ right: 18px; top: 50%; transform: translateY(-50%); }
-
-    /* Floating mobile order button */
-    #mobile-order-btn{
-      display:none;
-      position:fixed;
-      bottom: 18px;
-      right: 18px;
-      padding: 14px 18px;
-      background: linear-gradient(90deg, var(--brand), var(--brand-2));
-      color:#fff;
-      border-radius: 999px;
-      box-shadow: 0 18px 50px rgba(11,122,43,0.30);
-      z-index: 1400;
-      font-weight: 900;
-      letter-spacing: .2px;
-      transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
-    }
-    #mobile-order-btn:hover{ transform: translateY(-2px); box-shadow: 0 22px 70px rgba(11,122,43,0.38); }
-
-    /* Back to top */
-    #toTop{
-      position: fixed;
-      bottom: 18px;
-      left: 18px;
-      z-index: 1400;
-      opacity:0;
-      pointer-events:none;
-      transform: translateY(14px);
-      transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
-    }
-    #toTop.show{
-      opacity:1;
-      pointer-events:auto;
-      transform: translateY(0);
-    }
-
-    /* Footer */
-    footer{
-      background:#0f1112;
-      color:#fff;
-      text-align:center;
-      padding: 48px 18px;
-    }
-    footer .social{
-      margin-top: 10px;
-      display:flex;
-      justify-content:center;
-      gap: 14px;
-      font-size: 20px;
-      color: var(--brand-2);
-    }
-    footer a{ color: var(--brand-2); }
-
-    /* RESPONSIVE */
-    @media (max-width: 1024px){
-      .menu-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .gallery-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .order-wrap{ grid-template-columns: 1fr; }
-      .map{ min-height: 320px; }
-    }
-
-    @media (max-width: 640px){
-      .nav-desktop{ display:none; }
-      .menu-grid{ grid-template-columns: 1fr; }
-      .gallery-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      #mobile-order-btn{ display:block; }
-      .btn{ width: 100%; justify-content:center; }
-      .hero-card{ border-radius: 18px; }
-      .logo span{ max-width: 18ch; }
-    }
-
-    @media (max-width: 420px){
-      .gallery-grid img{ height: 130px; }
-    }
-  </style>
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Space Haven",
+    "servesCuisine": "Nigerian",
+    "priceRange": "₦₦",
+    "telephone": "+234-801-234-5678",
+    "address": { "@type": "PostalAddress", "streetAddress": "24 Adeola Odeku St, Victoria Island", "addressLocality": "Lagos", "addressCountry": "NG" },
+    "openingHours": ["Mo-Th 11:00-22:00", "Fr-Sa 11:00-23:30", "Su 12:00-21:00"]
+  }
+  </script>
 </head>
 
 <body>
-  <!-- HEADER -->
-  <header>
-    <div class="header-inner container" id="headerInner">
-      <a class="logo" href="#home" aria-label="NaijaTaste Home">
-        <span class="logo-badge" aria-hidden="true">N</span>
-        <span>NaijaTaste</span>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="index.html" aria-label="Space Haven home">
+        <span class="brand-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 13h16a8 8 0 0 1-16 0Z" fill="currentColor"/><path d="M6 13V9m12 4V9M9 6c0-1.5 6-1.5 6 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="5" r="1.6" fill="#f0b846"/></svg>
+        </span>
+        <span class="brand-name">Space Haven<small>Nigerian Kitchen</small></span>
       </a>
 
-      <nav class="nav-desktop" aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#menu">Menu</a>
-        <a href="#about">About</a>
-        <a href="#order">Order</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#gallery">Gallery</a>
-      </nav>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About</a>
+        <a href="reservations.html">Reservations</a>
+        <a href="contact.html">Contact</a>
+      </div>
 
-      <div class="header-actions">
-        <button class="icon-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" data-theme-toggle type="button" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i>
+        </button>
+        <button class="icon-btn" data-open-cart type="button" aria-label="Open cart">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span class="cart-count" aria-hidden="true">0</span>
+        </button>
+        <a class="btn primary small" href="reservations.html" style="margin-left:2px">Book a Table</a>
+        <button class="icon-btn nav-toggle" type="button" aria-label="Open menu" aria-controls="drawer">
           <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
         </button>
       </div>
-    </div>
+    </nav>
   </header>
 
-  <!-- Drawer -->
-  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
-  <aside class="drawer" id="drawer" hidden role="dialog" aria-modal="true" aria-label="Mobile menu">
+  <!-- Shared drawer / cart / backdrop -->
+  <div class="drawer-backdrop"></div>
+
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Mobile menu">
     <div class="drawer-head">
-      <div class="logo" style="gap:10px;">
-        <span class="logo-badge" aria-hidden="true">N</span>
-        <span style="font-weight:900;">NaijaTaste</span>
-      </div>
-      <button class="icon-btn" id="drawerClose" type="button" aria-label="Close menu">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
+      <span class="brand"><span class="brand-badge" aria-hidden="true"><i class="fa-solid fa-utensils" style="font-size:16px"></i></span><span class="brand-name">Space Haven</span></span>
+      <button class="icon-btn" id="drawerClose" type="button" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
     </div>
-
-    <nav class="drawer-nav" aria-label="Mobile navigation">
-      <a href="#home" data-drawer-link>Home</a>
-      <a href="#menu" data-drawer-link>Menu</a>
-      <a href="#about" data-drawer-link>About</a>
-      <a href="#order" data-drawer-link>Order</a>
-      <a href="#testimonials" data-drawer-link>Testimonials</a>
-      <a href="#gallery" data-drawer-link>Gallery</a>
+    <nav class="drawer-links" aria-label="Mobile">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">About</a>
+      <a href="reservations.html">Reservations</a>
+      <a href="contact.html">Contact</a>
     </nav>
-
-    <div class="drawer-footer">
-      <div style="font-weight:900;">Follow</div>
-      <div class="drawer-social" aria-label="Social links">
-        <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <div class="drawer-foot">
+      <a class="btn primary block" href="reservations.html">Book a Table</a>
+      <div class="drawer-social">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
       </div>
-      <a class="btn primary" href="#order" data-drawer-link style="text-align:center;">Order Now</a>
     </div>
   </aside>
 
-  <!-- MOBILE ORDER BUTTON -->
-  <a href="#order" id="mobile-order-btn">Order Now</a>
-  <button class="icon-btn" id="toTop" type="button" aria-label="Back to top">
-    <i class="fa-solid fa-arrow-up"></i>
-  </button>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping cart">
+    <div class="cart-head">
+      <h3>Your Order</h3>
+      <button class="icon-btn" id="cartClose" type="button" aria-label="Close cart"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-foot">
+      <div class="cart-line"><span>Subtotal</span><span data-cart-subtotal>₦0</span></div>
+      <div class="cart-line"><span>Delivery</span><span data-cart-delivery>₦0</span></div>
+      <div class="cart-line total"><span>Total</span><span data-cart-total>₦0</span></div>
+      <a class="btn primary block" href="menu.html#checkout">Checkout</a>
+    </div>
+  </aside>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="container hero-inner">
-      <div class="hero-card" data-animate>
-        <h1>Real Nigerian Flavor</h1>
-        <p>Discover delicious Naija dishes made with love, spice, and tradition.</p>
-        <div class="btns">
-          <button class="btn primary" type="button" data-scroll="#menu">Explore Menu</button>
-          <button class="btn ghost" type="button" data-scroll="#order">Order Now</button>
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-bg"><img src="images/hero background.jpeg" alt="" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <p class="eyebrow" data-reveal>Authentic Nigerian Cuisine · Lagos</p>
+        <h1 data-reveal data-delay="1">Real Naija Flavour, <span class="hl">Served with Soul</span></h1>
+        <p class="lead" data-reveal data-delay="2">From smoky party jollof to hand-pounded yam and sizzling suya — every dish is made with fresh ingredients, family recipes and a whole lot of love.</p>
+        <div class="hero-cta" data-reveal data-delay="3">
+          <a class="btn accent" href="menu.html"><i class="fa-solid fa-bowl-food"></i> Explore Menu</a>
+          <a class="btn ghost" href="reservations.html"><i class="fa-regular fa-calendar-check"></i> Reserve a Table</a>
+        </div>
+        <div class="hero-stats" data-reveal data-delay="4">
+          <div><div class="num" data-count="12" data-suffix="+">0</div><div class="lbl">Years serving Lagos</div></div>
+          <div><div class="num" data-count="50" data-suffix="k+">0</div><div class="lbl">Happy guests</div></div>
+          <div><div class="num" data-count="4.9" data-decimals="1" data-suffix="★">0</div><div class="lbl">Average rating</div></div>
+          <div><div class="num" data-count="30" data-suffix="min">0</div><div class="lbl">Avg. delivery</div></div>
         </div>
       </div>
-    </div>
-  </section>
+      <div class="scroll-cue" aria-hidden="true"><span class="mouse"></span>SCROLL</div>
+    </section>
 
-  <!-- MENU -->
-  <section class="section" id="menu">
-    <div class="container" data-animate>
-      <h2>Our Menu</h2>
-
-      <div class="filter-btns" role="tablist" aria-label="Menu categories">
-        <button class="chip active" type="button" data-filter="all" role="tab" aria-selected="true">All</button>
-        <button class="chip" type="button" data-filter="rice" role="tab" aria-selected="false">Rice Dishes</button>
-        <button class="chip" type="button" data-filter="soup" role="tab" aria-selected="false">Soups</button>
-        <button class="chip" type="button" data-filter="snacks" role="tab" aria-selected="false">Snacks</button>
-      </div>
-
-      <div class="menu-grid" id="menu-grid" aria-live="polite">
-        <article class="menu-item rice">
-          <img src="images/jollof rice and chicken.avif" alt="Jollof Rice & Chicken">
-          <div class="info">
-            <h3>Jollof Rice & Chicken</h3>
-            <p>Classic smoky jollof with grilled chicken.</p>
-            <div class="price">₦3,500</div>
-          </div>
-        </article>
-
-        <article class="menu-item soup">
-          <img src="images/pounded yam and egusi.jpg" alt="Pounded Yam & Egusi">
-          <div class="info">
-            <h3>Pounded Yam & Egusi</h3>
-            <p>Soft yam with rich egusi soup.</p>
-            <div class="price">₦4,200</div>
-          </div>
-        </article>
-
-        <article class="menu-item snacks">
-          <img src="images/fried plantain and sauce.webp" alt="Fried Plantain & Sauce">
-          <div class="info">
-            <h3>Fried Plantain & Sauce</h3>
-            <p>Sweet plantain with spicy sauce.</p>
-            <div class="price">₦2,000</div>
-          </div>
-        </article>
-
-        <article class="menu-item rice">
-          <img src="images/ofada rice.webp" alt="Ofada Rice & Ayamase">
-          <div class="info">
-            <h3>Ofada Rice & Ayamase</h3>
-            <p>Local rice with green pepper stew.</p>
-            <div class="price">₦3,800</div>
-          </div>
-        </article>
-
-        <article class="menu-item soup">
-          <img src="images/amala and ewedu.webp" alt="Amala & Ewedu">
-          <div class="info">
-            <h3>Amala & Ewedu</h3>
-            <p>Soft amala with rich ewedu.</p>
-            <div class="price">₦3,500</div>
-          </div>
-        </article>
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Smoky Jollof<span></span></span><span>Pounded Yam &amp; Egusi</span><span>Beef Suya</span><span>Ofada &amp; Ayamase</span><span>Fried Plantain</span><span>Amala &amp; Ewedu</span>
+        <span>Smoky Jollof</span><span>Pounded Yam &amp; Egusi</span><span>Beef Suya</span><span>Ofada &amp; Ayamase</span><span>Fried Plantain</span><span>Amala &amp; Ewedu</span>
       </div>
     </div>
-  </section>
 
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <div class="container" data-animate>
-      <h2>About Us</h2>
-      <p class="lead">
-        Welcome to Space Haven! We bring authentic Nigerian flavors straight to your plate.
-        Our chefs combine traditional recipes with fresh, local ingredients to deliver dishes
-        that celebrate Nigeria’s rich culinary heritage.
-      </p>
-    </div>
-  </section>
-
-  <!-- ORDER -->
-  <section class="section" id="order">
-    <div class="container" data-animate>
-      <h2>Place Your Order</h2>
-
-      <div class="order-wrap">
-        <form class="order-form" id="orderForm" action="https://formspree.io/f/yourformid" method="POST">
-          <input class="field" type="text" name="name" placeholder="Your Name" autocomplete="name" required>
-          <input class="field" type="email" name="email" placeholder="Your Email" autocomplete="email" required>
-          <input class="field" type="tel" name="phone" placeholder="Phone Number" autocomplete="tel" required>
-
-          <select class="field" name="dish" id="dish" required>
-            <option value="" disabled selected>Select Dish</option>
-            <option value="jollof">Jollof Rice & Chicken - ₦3,500</option>
-            <option value="pounded">Pounded Yam & Egusi - ₦4,200</option>
-            <option value="plantain">Fried Plantain & Sauce - ₦2,000</option>
-            <option value="ofada">Ofada Rice & Ayamase - ₦3,800</option>
-            <option value="amala">Amala & Ewedu - ₦3,500</option>
-          </select>
-
-          <input class="field" type="number" name="quantity" id="quantity" placeholder="Quantity" value="1" min="1" required>
-          <textarea class="field" name="instructions" placeholder="Additional Instructions" rows="4"></textarea>
-
-          <div class="total-row">
-            <span>Total</span>
-            <span>₦<span id="total">0</span></span>
-          </div>
-
-          <button class="btn primary" type="submit">Place Order</button>
-        </form>
-
-        <iframe
-          class="map"
-          title="Restaurant location"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.0000000000!2d3.0000000!3d6.0000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b000000000000%3A0x0000000000000000!2sYour%20Restaurant!5e0!3m2!1sen!2sng!4v0000000000000!5m2!1sen!2sng"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="section" id="testimonials">
-    <div class="container" data-animate>
-      <h2>Customer Reviews</h2>
-
-      <div class="testimonials-wrap">
-        <div class="testimonials" id="testimonialContainer" aria-label="Testimonials carousel">
-          <article class="testimonial">
-            <div class="who">
-              <img src="images/ada.jpg" alt="Ada">
-              <div>
-                <div style="font-weight:900;">Ada</div>
-                <div style="color:var(--muted); font-size: var(--fs-small);">Customer</div>
-              </div>
-            </div>
-            <p>"Amazing flavors! I felt like I was back in Lagos. Highly recommend Space Haven!"</p>
-          </article>
-
-          <article class="testimonial">
-            <div class="who">
-              <img src="images/chuka.jpg" alt="Chuka">
-              <div>
-                <div style="font-weight:900;">Chuka</div>
-                <div style="color:var(--muted); font-size: var(--fs-small);">Customer</div>
-              </div>
-            </div>
-            <p>"The Jollof Rice is incredible! Perfect balance of spice and aroma."</p>
-          </article>
-
-          <article class="testimonial">
-            <div class="who">
-              <img src="images/funke.jpg" alt="Funke">
-              <div>
-                <div style="font-weight:900;">Funke</div>
-                <div style="color:var(--muted); font-size: var(--fs-small);">Customer</div>
-              </div>
-            </div>
-            <p>"Quick delivery and delicious food. My go-to place for Nigerian dishes."</p>
-          </article>
+    <!-- ============ FEATURES ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="center" style="margin-bottom:12px">
+          <p class="eyebrow" data-reveal>Why Space Haven</p>
+          <h2 class="section-title" data-reveal data-delay="1">A taste of home, done right</h2>
+          <p class="lead" data-reveal data-delay="2">We obsess over the details so every plate feels like a Sunday family feast.</p>
         </div>
-
-        <div class="t-controls" aria-label="Testimonial controls">
-          <button class="pill" type="button" id="tPrev"><i class="fa-solid fa-chevron-left"></i> Prev</button>
-          <button class="pill" type="button" id="tNext">Next <i class="fa-solid fa-chevron-right"></i></button>
+        <div class="grid cols-4" style="margin-top:38px">
+          <div class="card feature" data-reveal><div class="ic"><i class="fa-solid fa-leaf"></i></div><h3>Fresh Daily</h3><p>Market-fresh produce and proteins sourced every morning — nothing frozen, nothing stale.</p></div>
+          <div class="card feature" data-reveal data-delay="1"><div class="ic"><i class="fa-solid fa-fire-burner"></i></div><h3>Family Recipes</h3><p>Traditional recipes passed down three generations, cooked low and slow the proper way.</p></div>
+          <div class="card feature" data-reveal data-delay="2"><div class="ic"><i class="fa-solid fa-truck-fast"></i></div><h3>Fast Delivery</h3><p>Hot, sealed and on your doorstep in about 30 minutes across Lagos Island and Mainland.</p></div>
+          <div class="card feature" data-reveal data-delay="3"><div class="ic"><i class="fa-solid fa-heart"></i></div><h3>Made with Love</h3><p>Every order is prepared to order — no shortcuts, just proper Naija hospitality on a plate.</p></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- GALLERY -->
-  <section class="section" id="gallery">
-    <div class="container" data-animate>
-      <h2>Gallery</h2>
-      <div class="gallery-grid" id="galleryGrid" aria-label="Gallery images">
-        <img src="images/ambiance 1.jpg" alt="Restaurant ambiance 1">
-        <img src="images/ambience 2.webp" alt="Restaurant ambiance 2">
-        <img src="images/ambience 3.jpg" alt="Restaurant ambiance 3">
-        <img src="images/ambience 4.png" alt="Restaurant ambiance 4">
-        <img src="images/ambience 5.jpg" alt="Restaurant ambiance 5">
-        <img src="images/ambience 6.webp" alt="Restaurant ambiance 6">
+    <!-- ============ ABOUT SPLIT ============ -->
+    <section class="section tint">
+      <div class="container split">
+        <div class="split-media" data-reveal>
+          <img src="images/funke.jpg" alt="Chef preparing traditional Nigerian dishes at Space Haven">
+          <div class="badge-float"><div class="big">12+</div><div><b>Years</b><br><small>of authentic cooking</small></div></div>
+        </div>
+        <div data-reveal data-delay="1">
+          <p class="eyebrow">Our Story</p>
+          <h2 class="section-title">From a Lagos kitchen to your table</h2>
+          <p class="lead">Space Haven began in 2013 as a small family kitchen with one goal: to serve Nigerian food exactly the way grandma made it — bold, generous and unmistakably authentic.</p>
+          <div class="tick"><i class="fa-solid fa-circle-check"></i><span><b>Locally sourced</b>Ingredients from trusted Lagos markets and farms.</span></div>
+          <div class="tick"><i class="fa-solid fa-circle-check"></i><span><b>Chef-led kitchen</b>Led by award-winning Chef Funke and her team.</span></div>
+          <div class="tick"><i class="fa-solid fa-circle-check"></i><span><b>Warm hospitality</b>A welcoming space for family, friends and celebrations.</span></div>
+          <a class="btn primary" href="about.html" style="margin-top:24px">Read Our Story <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURED DISHES ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="featured-head">
+          <div data-reveal>
+            <p class="eyebrow">Guest Favourites</p>
+            <h2 class="section-title" style="margin:0">Straight from the pot</h2>
+          </div>
+          <a class="btn" href="menu.html" data-reveal data-delay="1">View Full Menu <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="menu-grid" id="featuredGrid" style="margin-top:30px"></div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="section tint">
+      <div class="container">
+        <div class="center">
+          <p class="eyebrow" data-reveal>Loved by Lagos</p>
+          <h2 class="section-title" data-reveal data-delay="1">What our guests say</h2>
+        </div>
+        <div class="tst-wrap" data-reveal data-delay="2">
+          <div class="tst-track" id="tstTrack">
+            <article class="tst">
+              <div class="stars" aria-hidden="true">★★★★★</div>
+              <blockquote>"Amazing flavours! I felt like I was back home in Lagos. The jollof is smoky perfection and the portions are so generous."</blockquote>
+              <div class="who"><img src="images/ada.jpg" alt="Ada"><div><b>Ada Okafor</b><span>Regular guest</span></div></div>
+            </article>
+            <article class="tst">
+              <div class="stars" aria-hidden="true">★★★★★</div>
+              <blockquote>"The Jollof Rice is incredible — perfect balance of spice and aroma. Delivery was fast and the food arrived piping hot."</blockquote>
+              <div class="who"><img src="images/chuka.jpg" alt="Chuka"><div><b>Chuka Eze</b><span>Foodie</span></div></div>
+            </article>
+            <article class="tst">
+              <div class="stars" aria-hidden="true">★★★★★</div>
+              <blockquote>"My go-to place for proper Nigerian food. The pounded yam and egusi tastes just like my mum's. Highly recommend!"</blockquote>
+              <div class="who"><img src="images/funke.jpg" alt="Funke"><div><b>Funke Adeyemi</b><span>Local guide</span></div></div>
+            </article>
+            <article class="tst">
+              <div class="stars" aria-hidden="true">★★★★★</div>
+              <blockquote>"Booked for a birthday of 10 and everyone was blown away. Great ambience, attentive service and unforgettable suya."</blockquote>
+              <div class="who"><img src="images/ada.jpg" alt="Ngozi"><div><b>Ngozi B.</b><span>Celebrated here</span></div></div>
+            </article>
+          </div>
+          <div class="tst-controls">
+            <button class="icon-btn" id="tstPrev" type="button" aria-label="Previous review"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="icon-btn" id="tstNext" type="button" aria-label="Next review"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="center">
+          <p class="eyebrow" data-reveal>Our Space</p>
+          <h2 class="section-title" data-reveal data-delay="1">A warm place to gather</h2>
+        </div>
+        <div class="gallery" style="margin-top:30px" data-reveal>
+          <a href="images/ambiance 1.jpg" class="tall" data-lightbox><img src="images/ambiance 1.jpg" alt="Restaurant interior"></a>
+          <a href="images/ambience 2.webp" data-lightbox><img src="images/ambience 2.webp" alt="Dining area"></a>
+          <a href="images/ambience 3.jpg" data-lightbox><img src="images/ambience 3.jpg" alt="Cosy corner seating"></a>
+          <a href="images/ambience 5.jpg" class="wide" data-lightbox><img src="images/ambience 5.jpg" alt="Bar and lounge"></a>
+          <a href="images/ambience 4.png" data-lightbox><img src="images/ambience 4.png" alt="Table setting"></a>
+          <a href="images/ambience 6.webp" data-lightbox><img src="images/ambience 6.webp" alt="Ambient lighting"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA / NEWSLETTER ============ -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="cta-band" data-reveal>
+          <h2>Get a free side of puff puff 🎁</h2>
+          <p>Join our newsletter for exclusive offers, new dishes and events. First order gets a sweet surprise on us.</p>
+          <form class="newsletter" data-newsletter novalidate>
+            <input type="email" placeholder="Enter your email" aria-label="Email address" required>
+            <button class="btn accent" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand"><span class="brand-badge" aria-hidden="true"><i class="fa-solid fa-utensils" style="font-size:16px"></i></span><span class="brand-name" style="color:#fff">Space Haven</span></span>
+        <p>Authentic Nigerian cuisine served with soul in the heart of Lagos. Dine in, reserve, or order online.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="index.html">Home</a><br><a href="menu.html">Menu</a><br><a href="about.html">About</a><br><a href="reservations.html">Reservations</a><br><a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <p style="color:#b7b1a3;font-size:14px;line-height:2">Mon–Thu: 11am – 10pm<br>Fri–Sat: 11am – 11:30pm<br>Sun: 12pm – 9pm</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i> 24 Adeola Odeku St, Victoria Island, Lagos</li>
+          <li><i class="fa-solid fa-phone"></i> +234 801 234 5678</li>
+          <li><i class="fa-solid fa-envelope"></i> hello@spacehaven.ng</li>
+        </ul>
       </div>
     </div>
-  </section>
-
-  <!-- LIGHTBOX -->
-  <div id="lightbox" aria-hidden="true">
-    <button class="lb-btn" id="close-lightbox" type="button" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
-    <button class="lb-btn" id="prev-lightbox" type="button" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
-    <img id="lightbox-img" alt="Expanded gallery image" />
-    <button class="lb-btn" id="next-lightbox" type="button" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <div>© 2025 Space Haven Restaurant. All Rights Reserved.</div>
-    <div style="margin-top:8px;">Follow us on social media</div>
-    <div class="social">
-      <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <div class="container footer-bottom">
+      <span>© <span data-year>2025</span> Space Haven Restaurant. All rights reserved.</span>
+      <span>Made with <i class="fa-solid fa-heart" style="color:#e8a325"></i> in Lagos, Nigeria</span>
     </div>
   </footer>
 
+  <!-- Floating + overlays -->
+  <button class="icon-btn to-top" type="button" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-btn lb-close" id="lbClose" type="button" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <button class="lb-btn lb-prev" id="lbPrev" type="button" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+    <img id="lightboxImg" src="" alt="Gallery image enlarged">
+    <button class="lb-btn lb-next" id="lbNext" type="button" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
   <script>
+    /* Render featured dishes on the home page */
     (function () {
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      // Header shadow on scroll + back to top
-      const headerInner = document.getElementById('headerInner');
-      const toTop = document.getElementById('toTop');
-      const onScroll = () => {
-        const y = window.scrollY || 0;
-        headerInner?.classList.toggle('is-scrolled', y > 10);
-        toTop?.classList.toggle('show', y > 700);
-      };
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-
-      toTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-      // Smooth scroll buttons
-      document.addEventListener('click', (e) => {
-        const btn = e.target.closest('[data-scroll]');
-        if (!btn) return;
-        const sel = btn.getAttribute('data-scroll');
-        const target = document.querySelector(sel);
-        if (!target) return;
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-
-      // Scroll reveal (IntersectionObserver)
-      const animated = Array.from(document.querySelectorAll('[data-animate]'));
-      if (!reduceMotion && 'IntersectionObserver' in window) {
-        const io = new IntersectionObserver((entries) => {
-          for (const ent of entries) {
-            if (!ent.isIntersecting) continue;
-            ent.target.classList.add('in');
-            io.unobserve(ent.target);
-          }
-        }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
-
-        animated.forEach(el => io.observe(el));
-      } else {
-        animated.forEach(el => el.classList.add('in'));
-      }
-
-      // Active link highlight (desktop only)
-      const navLinks = Array.from(document.querySelectorAll('.nav-desktop a[href^="#"]'));
-      const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-      const setActive = (id) => navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
-
-      if ('IntersectionObserver' in window && sections.length) {
-        const spy = new IntersectionObserver((entries) => {
-          const top = entries.filter(e => e.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
-          if (top?.target?.id) setActive(top.target.id);
-        }, { rootMargin: '-20% 0px -70% 0px', threshold: [0.12, 0.22, 0.35] });
-        sections.forEach(s => spy.observe(s));
-      }
-
-      // Drawer menu
-      const menuBtn = document.getElementById('menuBtn');
-      const drawer = document.getElementById('drawer');
-      const backdrop = document.getElementById('drawerBackdrop');
-      const drawerClose = document.getElementById('drawerClose');
-      const drawerLinks = Array.from(document.querySelectorAll('[data-drawer-link]'));
-      let lastFocused = null;
-
-      function setDrawerHidden(hidden){
-        drawer.hidden = hidden;
-        backdrop.hidden = hidden;
-      }
-
-      function openMenu(){
-        lastFocused = document.activeElement;
-        setDrawerHidden(false);
-        requestAnimationFrame(() => {
-          document.body.classList.add('menu-open');
-          menuBtn.setAttribute('aria-expanded', 'true');
-          drawerClose?.focus({ preventScroll: true });
-        });
-      }
-
-      function closeMenu(){
-        document.body.classList.remove('menu-open');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        const finish = () => {
-          setDrawerHidden(true);
-          lastFocused?.focus?.({ preventScroll: true });
-        };
-        if (reduceMotion) return finish();
-        window.setTimeout(finish, 260);
-      }
-
-      menuBtn.addEventListener('click', () => {
-        const isOpen = document.body.classList.contains('menu-open');
-        isOpen ? closeMenu() : openMenu();
-      });
-      drawerClose.addEventListener('click', closeMenu);
-      backdrop.addEventListener('click', closeMenu);
-      drawerLinks.forEach(a => a.addEventListener('click', closeMenu));
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && document.body.classList.contains('menu-open')) closeMenu();
-      });
-
-      // Menu filtering (no global event usage)
-      const chips = Array.from(document.querySelectorAll('.chip[data-filter]'));
-      const items = Array.from(document.querySelectorAll('.menu-item'));
-      function applyFilter(cat){
-        chips.forEach(c => {
-          const active = c.dataset.filter === cat;
-          c.classList.toggle('active', active);
-          c.setAttribute('aria-selected', active ? 'true' : 'false');
-        });
-        items.forEach(it => {
-          const show = cat === 'all' || it.classList.contains(cat);
-          it.style.display = show ? '' : 'none';
-        });
-      }
-      chips.forEach(c => c.addEventListener('click', () => applyFilter(c.dataset.filter)));
-      applyFilter('all');
-
-      // Order total
-      const dishPrices = { jollof:3500, pounded:4200, plantain:2000, ofada:3800, amala:3500 };
-      const dishSelect = document.getElementById('dish');
-      const quantityInput = document.getElementById('quantity');
-      const totalSpan = document.getElementById('total');
-
-      function updateTotal(){
-        const dish = dishSelect.value;
-        const qty = Math.max(1, parseInt(quantityInput.value || '1', 10));
-        const total = (dishPrices[dish] || 0) * qty;
-        totalSpan.textContent = String(total);
-      }
-      dishSelect.addEventListener('change', updateTotal);
-      quantityInput.addEventListener('input', updateTotal);
-      updateTotal();
-
-      // Testimonials: scroll-snap + controls + autoplay (pause on hover)
-      const tContainer = document.getElementById('testimonialContainer');
-      const tPrev = document.getElementById('tPrev');
-      const tNext = document.getElementById('tNext');
-
-      const scrollByCard = (dir) => {
-        const card = tContainer.querySelector('.testimonial');
-        if (!card) return;
-        const gap = 22;
-        const w = card.getBoundingClientRect().width + gap;
-        tContainer.scrollBy({ left: dir * w, behavior: 'smooth' });
-      };
-
-      tPrev.addEventListener('click', () => scrollByCard(-1));
-      tNext.addEventListener('click', () => scrollByCard(1));
-
-      let tTimer = null;
-      let hovering = false;
-
-      function startAuto(){
-        if (reduceMotion) return;
-        stopAuto();
-        tTimer = window.setInterval(() => {
-          if (hovering) return;
-          scrollByCard(1);
-        }, 4200);
-      }
-      function stopAuto(){
-        if (tTimer) window.clearInterval(tTimer);
-        tTimer = null;
-      }
-      tContainer.addEventListener('mouseenter', () => { hovering = true; });
-      tContainer.addEventListener('mouseleave', () => { hovering = false; });
-      startAuto();
-
-      // Lightbox with keyboard + next/prev
-      const gallery = Array.from(document.querySelectorAll('#galleryGrid img'));
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightbox-img');
-      const closeLb = document.getElementById('close-lightbox');
-      const prevLb = document.getElementById('prev-lightbox');
-      const nextLb = document.getElementById('next-lightbox');
-
-      let lbIndex = 0;
-      let lbLastFocus = null;
-
-      function openLightbox(i){
-        lbIndex = i;
-        lbLastFocus = document.activeElement;
-        lightboxImg.src = gallery[lbIndex].src;
-        lightbox.classList.add('open');
-        lightbox.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        closeLb.focus({ preventScroll: true });
-      }
-
-      function closeLightbox(){
-        lightbox.classList.remove('open');
-        lightbox.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        lbLastFocus?.focus?.({ preventScroll: true });
-      }
-
-      function show(delta){
-        lbIndex = (lbIndex + delta + gallery.length) % gallery.length;
-        lightboxImg.src = gallery[lbIndex].src;
-      }
-
-      gallery.forEach((img, i) => img.addEventListener('click', () => openLightbox(i)));
-      closeLb.addEventListener('click', closeLightbox);
-      prevLb.addEventListener('click', () => show(-1));
-      nextLb.addEventListener('click', () => show(1));
-      lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-
-      document.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('open')) return;
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowLeft') show(-1);
-        if (e.key === 'ArrowRight') show(1);
+      const grid = document.getElementById("featuredGrid");
+      if (!grid || !window.MENU) return;
+      const money = (n) => "₦" + Number(n).toLocaleString("en-NG");
+      const featured = window.MENU.filter((d) => (d.tags || []).includes("pop")).slice(0, 3);
+      grid.innerHTML = featured.map((d) => `
+        <article class="dish" data-id="${d.id}">
+          <div class="dish-media"><img src="${d.img}" alt="${d.name}" loading="lazy">
+            <div class="dish-tags"><span class="tag pop"><i class="fa-solid fa-fire"></i>Popular</span></div>
+          </div>
+          <div class="dish-body">
+            <div class="dish-head"><h3>${d.name}</h3><span class="dish-price">${money(d.price)}</span></div>
+            <div class="dish-meta"><span class="stars">★★★★★</span><span>${d.rating.toFixed(1)} · ${d.reviews} reviews</span></div>
+            <p>${d.desc}</p>
+            <div class="dish-foot"><button class="btn primary block" type="button" data-add><i class="fa-solid fa-cart-plus"></i> Add to Cart</button></div>
+          </div>
+        </article>`).join("");
+      grid.addEventListener("click", (e) => {
+        const card = e.target.closest(".dish");
+        if (card && e.target.closest("[data-add]")) window.SH.addToCart(card.dataset.id, 1);
       });
     })();
   </script>
