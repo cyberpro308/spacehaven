@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Space Haven Nigerian Cuisine</title>
+  <meta name="description" content="Meet the family behind Space Haven — our story, our values, and the chefs bringing authentic Nigerian flavours to Lagos since 2013." />
+  <meta name="theme-color" content="#0f7a38" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f7a38'/%3E%3Cpath d='M8 18h16a8 8 0 0 1-16 0Z' fill='%23fff'/%3E%3Ccircle cx='16' cy='9' r='3' fill='%23f0b846'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="index.html" aria-label="Space Haven home">
+        <span class="brand-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 13h16a8 8 0 0 1-16 0Z" fill="currentColor"/><path d="M6 13V9m12 4V9M9 6c0-1.5 6-1.5 6 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="5" r="1.6" fill="#f0b846"/></svg></span>
+        <span class="brand-name">Space Haven<small>Nigerian Kitchen</small></span>
+      </a>
+      <div class="nav-links"><a href="index.html">Home</a><a href="menu.html">Menu</a><a href="about.html">About</a><a href="reservations.html">Reservations</a><a href="contact.html">Contact</a></div>
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" data-theme-toggle type="button" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i></button>
+        <button class="icon-btn" data-open-cart type="button" aria-label="Open cart"><i class="fa-solid fa-basket-shopping"></i><span class="cart-count" aria-hidden="true">0</span></button>
+        <a class="btn primary small" href="reservations.html" style="margin-left:2px">Book a Table</a>
+        <button class="icon-btn nav-toggle" type="button" aria-label="Open menu" aria-controls="drawer"><span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span></button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="drawer-backdrop"></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <div class="drawer-head"><span class="brand"><span class="brand-badge" aria-hidden="true"><i class="fa-solid fa-utensils" style="font-size:16px"></i></span><span class="brand-name">Space Haven</span></span><button class="icon-btn" id="drawerClose" type="button" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button></div>
+    <nav class="drawer-links" aria-label="Mobile"><a href="index.html">Home</a><a href="menu.html">Menu</a><a href="about.html">About</a><a href="reservations.html">Reservations</a><a href="contact.html">Contact</a></nav>
+    <div class="drawer-foot"><a class="btn primary block" href="reservations.html">Book a Table</a><div class="drawer-social"><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a><a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a></div></div>
+  </aside>
+
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping cart">
+    <div class="cart-head"><h3>Your Order</h3><button class="icon-btn" id="cartClose" type="button" aria-label="Close cart"><i class="fa-solid fa-xmark"></i></button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-foot"><div class="cart-line"><span>Subtotal</span><span data-cart-subtotal>₦0</span></div><div class="cart-line"><span>Delivery</span><span data-cart-delivery>₦0</span></div><div class="cart-line total"><span>Total</span><span data-cart-total>₦0</span></div><a class="btn primary block" href="menu.html#checkout">Checkout</a></div>
+  </aside>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="hero-bg"><img src="images/ambiance 1.jpg" alt="" aria-hidden="true"></div>
+      <div class="container" style="position:relative;z-index:2">
+        <p class="eyebrow" style="justify-content:center;color:var(--accent-2)">Our Story</p>
+        <h1>Cooking Naija, since 2013</h1>
+        <p>More than a restaurant — a home for anyone craving the real taste of Nigeria.</p>
+        <nav class="breadcrumb"><a href="index.html">Home</a> / About</nav>
+      </div>
+    </section>
+
+    <!-- Story split -->
+    <section class="section">
+      <div class="container split">
+        <div class="split-media" data-reveal>
+          <img src="images/ambience 5.jpg" alt="Inside Space Haven restaurant">
+          <div class="badge-float"><div class="big">50k+</div><div><b>Guests</b><br><small>served with love</small></div></div>
+        </div>
+        <div data-reveal data-delay="1">
+          <p class="eyebrow">How it began</p>
+          <h2 class="section-title">A small kitchen with a big dream</h2>
+          <p class="lead">It started with Chef Funke cooking weekend meals for friends in a tiny Surulere kitchen. Word spread fast — the jollof was too good to keep secret. In 2013 we opened our doors on Victoria Island, and we've been feeding Lagos ever since.</p>
+          <p style="color:var(--muted);margin-top:14px">Today, Space Haven is a beloved neighbourhood spot, but our promise hasn't changed: honest, generous Nigerian food made from scratch, every single day.</p>
+          <div class="stat-row">
+            <div class="stat"><div class="num" data-count="12" data-suffix="+">0</div><div class="lbl">Years open</div></div>
+            <div class="stat"><div class="num" data-count="40" data-suffix="+">0</div><div class="lbl">Dishes on menu</div></div>
+            <div class="stat"><div class="num" data-count="4.9" data-decimals="1" data-suffix="★">0</div><div class="lbl">Guest rating</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="section tint">
+      <div class="container">
+        <div class="center"><p class="eyebrow" data-reveal>What we stand for</p><h2 class="section-title" data-reveal data-delay="1">Our values</h2></div>
+        <div class="grid cols-3" style="margin-top:36px">
+          <div class="card feature" data-reveal><div class="ic"><i class="fa-solid fa-seedling"></i></div><h3>Authenticity</h3><p>We cook Nigerian food the traditional way — no fusion shortcuts, just the flavours you grew up loving.</p></div>
+          <div class="card feature" data-reveal data-delay="1"><div class="ic"><i class="fa-solid fa-handshake-angle"></i></div><h3>Community</h3><p>We source locally, employ locally and give back to the Lagos community that raised us.</p></div>
+          <div class="card feature" data-reveal data-delay="2"><div class="ic"><i class="fa-solid fa-award"></i></div><h3>Quality</h3><p>Fresh ingredients, clean kitchens and dishes prepared to order — we never compromise.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section">
+      <div class="container">
+        <div class="center"><p class="eyebrow" data-reveal>The people</p><h2 class="section-title" data-reveal data-delay="1">Meet the kitchen</h2><p class="lead" data-reveal data-delay="2">A passionate team that treats every plate like it's for family.</p></div>
+        <div class="grid cols-3" style="margin-top:36px">
+          <div class="card" data-reveal style="padding:0;overflow:hidden">
+            <img src="images/funke.jpg" alt="Chef Funke Adeyemi" style="aspect-ratio:4/3;object-fit:cover">
+            <div style="padding:20px"><h3 style="margin:0 0 4px;font-size:19px">Funke Adeyemi</h3><p style="color:var(--brand);font-weight:700;margin:0 0 8px;font-size:14px">Founder & Head Chef</p><p style="color:var(--muted);margin:0;font-size:14px">The heart of Space Haven, with 20+ years mastering Yoruba and pan-Nigerian cuisine.</p></div>
+          </div>
+          <div class="card" data-reveal data-delay="1" style="padding:0;overflow:hidden">
+            <img src="images/chuka.jpg" alt="Chuka Obi" style="aspect-ratio:4/3;object-fit:cover">
+            <div style="padding:20px"><h3 style="margin:0 0 4px;font-size:19px">Chuka Obi</h3><p style="color:var(--brand);font-weight:700;margin:0 0 8px;font-size:14px">Grill Master</p><p style="color:var(--muted);margin:0;font-size:14px">Our suya and peppered chicken specialist — the reason the grill never rests.</p></div>
+          </div>
+          <div class="card" data-reveal data-delay="2" style="padding:0;overflow:hidden">
+            <img src="images/ada.jpg" alt="Ada Nwosu" style="aspect-ratio:4/3;object-fit:cover">
+            <div style="padding:20px"><h3 style="margin:0 0 4px;font-size:19px">Ada Nwosu</h3><p style="color:var(--brand);font-weight:700;margin:0 0 8px;font-size:14px">Guest Experience Lead</p><p style="color:var(--muted);margin:0;font-size:14px">Makes sure every guest leaves happier and fuller than they arrived.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section tint">
+      <div class="container">
+        <div class="center"><p class="eyebrow" data-reveal>Life at Space Haven</p><h2 class="section-title" data-reveal data-delay="1">Gallery</h2></div>
+        <div class="gallery" style="margin-top:30px" data-reveal>
+          <a href="images/ambiance 1.jpg" class="wide" data-lightbox><img src="images/ambiance 1.jpg" alt="Restaurant interior"></a>
+          <a href="images/ambience 2.webp" data-lightbox><img src="images/ambience 2.webp" alt="Dining"></a>
+          <a href="images/ambience 3.jpg" data-lightbox><img src="images/ambience 3.jpg" alt="Seating"></a>
+          <a href="images/pounded yam and egusi.jpg" data-lightbox><img src="images/pounded yam and egusi.jpg" alt="Pounded yam and egusi"></a>
+          <a href="images/ambience 4.png" data-lightbox><img src="images/ambience 4.png" alt="Table setting"></a>
+          <a href="images/jollof-rice.jpg" class="tall" data-lightbox><img src="images/jollof-rice.jpg" alt="Jollof rice"></a>
+          <a href="images/ambience 6.webp" data-lightbox><img src="images/ambience 6.webp" alt="Lighting"></a>
+          <a href="images/amala.jpg" data-lightbox><img src="images/amala.jpg" alt="Amala"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-band" data-reveal>
+          <h2>Come taste the difference</h2>
+          <p>Reserve a table for the full Space Haven experience, or order online and bring Naija flavour home tonight.</p>
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+            <a class="btn accent" href="reservations.html"><i class="fa-regular fa-calendar-check"></i> Book a Table</a>
+            <a class="btn ghost" href="menu.html"><i class="fa-solid fa-bowl-food"></i> Order Online</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand"><span class="brand"><span class="brand-badge" aria-hidden="true"><i class="fa-solid fa-utensils" style="font-size:16px"></i></span><span class="brand-name" style="color:#fff">Space Haven</span></span><p>Authentic Nigerian cuisine served with soul in the heart of Lagos. Dine in, reserve, or order online.</p><div class="footer-social"><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a><a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a></div></div>
+      <div><h4>Explore</h4><a href="index.html">Home</a><br><a href="menu.html">Menu</a><br><a href="about.html">About</a><br><a href="reservations.html">Reservations</a><br><a href="contact.html">Contact</a></div>
+      <div><h4>Hours</h4><p style="color:#b7b1a3;font-size:14px;line-height:2">Mon–Thu: 11am – 10pm<br>Fri–Sat: 11am – 11:30pm<br>Sun: 12pm – 9pm</p></div>
+      <div><h4>Contact</h4><ul class="footer-contact"><li><i class="fa-solid fa-location-dot"></i> 24 Adeola Odeku St, Victoria Island, Lagos</li><li><i class="fa-solid fa-phone"></i> +234 801 234 5678</li><li><i class="fa-solid fa-envelope"></i> hello@spacehaven.ng</li></ul></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span data-year>2025</span> Space Haven Restaurant. All rights reserved.</span><span>Made with <i class="fa-solid fa-heart" style="color:#e8a325"></i> in Lagos, Nigeria</span></div>
+  </footer>
+
+  <button class="icon-btn to-top" type="button" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-btn lb-close" id="lbClose" type="button" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <button class="lb-btn lb-prev" id="lbPrev" type="button" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+    <img id="lightboxImg" src="" alt="Gallery image enlarged">
+    <button class="lb-btn lb-next" id="lbNext" type="button" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
