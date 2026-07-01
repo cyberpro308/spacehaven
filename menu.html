@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu & Online Ordering — Space Haven Nigerian Cuisine</title>
+  <meta name="description" content="Browse Space Haven's full Nigerian menu — jollof rice, pounded yam & egusi, suya, ofada, plantain and more. Add to cart and order online for delivery or pickup in Lagos." />
+  <meta name="theme-color" content="#0f7a38" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f7a38'/%3E%3Cpath d='M8 18h16a8 8 0 0 1-16 0Z' fill='%23fff'/%3E%3Ccircle cx='16' cy='9' r='3' fill='%23f0b846'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="index.html" aria-label="Space Haven home">
+        <span class="brand-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 13h16a8 8 0 0 1-16 0Z" fill="currentColor"/><path d="M6 13V9m12 4V9M9 6c0-1.5 6-1.5 6 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="5" r="1.6" fill="#f0b846"/></svg></span>
+        <span class="brand-name">Space Haven<small>Nigerian Kitchen</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a><a href="menu.html">Menu</a><a href="about.html">About</a><a href="reservations.html">Reservations</a><a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" data-theme-toggle type="button" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i></button>
+        <button class="icon-btn" data-open-cart type="button" aria-label="Open cart"><i class="fa-solid fa-basket-shopping"></i><span class="cart-count" aria-hidden="true">0</span></button>
+        <a class="btn primary small" href="reservations.html" style="margin-left:2px">Book a Table</a>
+        <button class="icon-btn nav-toggle" type="button" aria-label="Open menu" aria-controls="drawer"><span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span></button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="drawer-backdrop"></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <div class="drawer-head">
+      <span class="brand"><span class="brand-badge" aria-hidden="true"><i class="fa-solid fa-utensils" style="font-size:16px"></i></span><span class="brand-name">Space Haven</span></span>
+      <button class="icon-btn" id="drawerClose" type="button" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <nav class="drawer-links" aria-label="Mobile"><a href="index.html">Home</a><a href="menu.html">Menu</a><a href="about.html">About</a><a href="reservations.html">Reservations</a><a href="contact.html">Contact</a></nav>
+    <div class="drawer-foot">
+      <a class="btn primary block" href="reservations.html">Book a Table</a>
+      <div class="drawer-social"><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a><a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a></div>
+    </div>
+  </aside>
+
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping cart">
+    <div class="cart-head"><h3>Your Order</h3><button class="icon-btn" id="cartClose" type="button" aria-label="Close cart"><i class="fa-solid fa-xmark"></i></button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-foot">
+      <div class="cart-line"><span>Subtotal</span><span data-cart-subtotal>₦0</span></div>
+      <div class="cart-line"><span>Delivery</span><span data-cart-delivery>₦0</span></div>
+      <div class="cart-line total"><span>Total</span><span data-cart-total>₦0</span></div>
+      <a class="btn primary block" href="#checkout" id="goCheckout">Checkout</a>
+    </div>
+  </aside>
+
+  <main id="main">
+    <!-- Page hero -->
+    <section class="page-hero">
+      <div class="hero-bg"><img src="images/best-nigerian-food.jpg" alt="" aria-hidden="true"></div>
+      <div class="container" style="position:relative;z-index:2">
+        <p class="eyebrow" style="justify-content:center;color:var(--accent-2)">Our Menu</p>
+        <h1>Made fresh, served hot</h1>
+        <p>Explore our full spread of Nigerian classics. Add your favourites to the cart and check out for delivery or pickup.</p>
+        <nav class="breadcrumb"><a href="index.html">Home</a> / Menu</nav>
+      </div>
+    </section>
+
+    <!-- Menu -->
+    <section class="section">
+      <div class="container">
+        <div class="menu-toolbar">
+          <label class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" id="menuSearch" placeholder="Search dishes…" aria-label="Search dishes">
+          </label>
+          <span class="tag" id="menuCount">All dishes</span>
+        </div>
+
+        <div class="filter-btns" role="tablist" aria-label="Menu categories">
+          <button class="chip active" data-filter="all" role="tab" aria-selected="true">All Dishes</button>
+          <button class="chip" data-filter="rice" role="tab" aria-selected="false">Rice Dishes</button>
+          <button class="chip" data-filter="swallow" role="tab" aria-selected="false">Swallow &amp; Soups</button>
+          <button class="chip" data-filter="grills" role="tab" aria-selected="false">Grills &amp; Proteins</button>
+          <button class="chip" data-filter="sides" role="tab" aria-selected="false">Snacks &amp; Sides</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid" style="margin-top:28px" aria-live="polite"></div>
+        <div class="menu-empty" id="menuEmpty"><i class="fa-solid fa-utensils" style="font-size:34px"></i><p style="margin-top:12px">No dishes match your search. Try a different keyword.</p></div>
+      </div>
+    </section>
+
+    <!-- Checkout -->
+    <section class="section tint" id="checkout">
+      <div class="container">
+        <div class="center" style="margin-bottom:8px">
+          <p class="eyebrow" style="justify-content:center">Checkout</p>
+          <h2 class="section-title">Complete your order</h2>
+          <p class="lead">Fill in your details and we'll get cooking. Free delivery on orders over ₦15,000.</p>
+        </div>
+
+        <div class="checkout-grid">
+          <form class="form-card" id="checkoutForm" novalidate>
+            <div style="margin-bottom:18px">
+              <span class="segmented" role="radiogroup" aria-label="Order type">
+                <input type="radio" name="ordertype" id="ot-delivery" value="delivery" checked>
+                <label for="ot-delivery"><i class="fa-solid fa-truck-fast"></i> Delivery</label>
+                <input type="radio" name="ordertype" id="ot-pickup" value="pickup">
+                <label for="ot-pickup"><i class="fa-solid fa-bag-shopping"></i> Pickup</label>
+              </span>
+            </div>
+
+            <div class="form-grid">
+              <div class="field-group">
+                <label for="c-name">Full name <span class="req">*</span></label>
+                <input class="field" id="c-name" name="name" type="text" autocomplete="name" required>
+                <span class="err-msg">Please enter your name.</span>
+              </div>
+              <div class="field-group">
+                <label for="c-phone">Phone <span class="req">*</span></label>
+                <input class="field" id="c-phone" name="phone" type="tel" autocomplete="tel" required>
+                <span class="err-msg">Enter a valid phone number.</span>
+              </div>
+              <div class="field-group full">
+                <label for="c-email">Email <span class="req">*</span></label>
+                <input class="field" id="c-email" name="email" type="email" autocomplete="email" required>
+                <span class="err-msg">Enter a valid email address.</span>
+              </div>
+              <div class="field-group full" data-delivery-only>
+                <label for="c-address">Delivery address <span class="req">*</span></label>
+                <input class="field" id="c-address" name="address" type="text" autocomplete="street-address" required>
+                <span class="err-msg">Please enter your delivery address.</span>
+              </div>
+              <div class="field-group full">
+                <label for="c-notes">Order notes</label>
+                <textarea class="field" id="c-notes" name="notes" rows="3" placeholder="Allergies, spice level, delivery instructions…"></textarea>
+              </div>
+              <div class="field-group full">
+                <label for="c-pay">Payment method</label>
+                <select class="field" id="c-pay" name="payment">
+                  <option value="card">Card on delivery / pickup</option>
+                  <option value="cash">Cash</option>
+                  <option value="transfer">Bank transfer</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn primary block" type="submit" style="margin-top:18px"><i class="fa-solid fa-lock"></i> Place Order</button>
+          </form>
+
+          <aside class="form-card" aria-label="Order summary">
+            <h3 style="margin:0 0 14px">Order Summary</h3>
+            <div id="checkoutSummary" style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px"></div>
+            <div style="border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:8px">
+              <div class="cart-line"><span>Subtotal</span><span data-cart-subtotal>₦0</span></div>
+              <div class="cart-line"><span>Delivery</span><span data-cart-delivery>₦0</span></div>
+            </div>
+            <div class="total-row" style="margin-top:14px"><span>Total</span><span data-cart-total>₦0</span></div>
+            <p style="color:var(--muted);font-size:13px;margin:14px 0 0"><i class="fa-solid fa-circle-info"></i> Free delivery on orders over ₦15,000.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand"><span class="brand-badge" aria-hidden="true"><i class="fa-solid fa-utensils" style="font-size:16px"></i></span><span class="brand-name" style="color:#fff">Space Haven</span></span>
+        <p>Authentic Nigerian cuisine served with soul in the heart of Lagos. Dine in, reserve, or order online.</p>
+        <div class="footer-social"><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a><a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a></div>
+      </div>
+      <div><h4>Explore</h4><a href="index.html">Home</a><br><a href="menu.html">Menu</a><br><a href="about.html">About</a><br><a href="reservations.html">Reservations</a><br><a href="contact.html">Contact</a></div>
+      <div><h4>Hours</h4><p style="color:#b7b1a3;font-size:14px;line-height:2">Mon–Thu: 11am – 10pm<br>Fri–Sat: 11am – 11:30pm<br>Sun: 12pm – 9pm</p></div>
+      <div><h4>Contact</h4><ul class="footer-contact"><li><i class="fa-solid fa-location-dot"></i> 24 Adeola Odeku St, Victoria Island, Lagos</li><li><i class="fa-solid fa-phone"></i> +234 801 234 5678</li><li><i class="fa-solid fa-envelope"></i> hello@spacehaven.ng</li></ul></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span data-year>2025</span> Space Haven Restaurant. All rights reserved.</span><span>Made with <i class="fa-solid fa-heart" style="color:#e8a325"></i> in Lagos, Nigeria</span></div>
+  </footer>
+
+  <button class="icon-btn to-top" type="button" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Order confirmation modal -->
+  <div class="modal-backdrop" id="orderModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+      <div class="check"><i class="fa-solid fa-check"></i></div>
+      <h3 id="orderModalTitle">Order placed! 🎉</h3>
+      <p id="orderModalMsg">Thank you! Your order is confirmed. We'll call you shortly to finalise the details.</p>
+      <button class="btn primary block" id="orderModalClose" type="button">Continue</button>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/menu.js"></script>
+  <script>
+    /* Checkout logic */
+    (function () {
+      const form = document.getElementById("checkoutForm");
+      const modal = document.getElementById("orderModal");
+      const modalMsg = document.getElementById("orderModalMsg");
+
+      /* Toggle delivery address requirement based on order type */
+      const addrGroup = document.querySelector("[data-delivery-only]");
+      const addrInput = document.getElementById("c-address");
+      function syncOrderType() {
+        const pickup = document.getElementById("ot-pickup").checked;
+        addrGroup.style.display = pickup ? "none" : "";
+        if (pickup) { addrInput.required = false; addrInput.classList.remove("invalid"); }
+        else addrInput.required = true;
+      }
+      document.querySelectorAll('input[name="ordertype"]').forEach((r) => r.addEventListener("change", syncOrderType));
+      syncOrderType();
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!window.SH.getCart().length) {
+          window.SH.toast("Your cart is empty — add a dish first.", "error");
+          document.getElementById("menuGrid").scrollIntoView({ behavior: "smooth" });
+          return;
+        }
+        if (!window.SH.validateForm(form)) {
+          window.SH.toast("Please fix the highlighted fields.", "error");
+          return;
+        }
+        const type = document.querySelector('input[name="ordertype"]:checked').value;
+        const total = document.querySelector("[data-cart-total]").textContent;
+        modalMsg.textContent = `Thank you! Your ${type} order totalling ${total} is confirmed. We'll call you shortly to finalise the details.`;
+        modal.classList.add("open");
+        document.body.classList.add("no-scroll");
+        window.SH.clearCart();
+        form.reset();
+        syncOrderType();
+      });
+
+      function closeModal() { modal.classList.remove("open"); document.body.classList.remove("no-scroll"); }
+      document.getElementById("orderModalClose").addEventListener("click", closeModal);
+      modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+
+      /* Close cart drawer when jumping to checkout */
+      document.getElementById("goCheckout").addEventListener("click", () => window.SH.closeCart());
+    })();
+  </script>
+</body>
+</html>
